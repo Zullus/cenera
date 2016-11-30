@@ -1,19 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Courts</title>
-</head>
-<body>
 
-	<?php foreach($courts as $court): ?>
 
-		<?php echo e($court->id); ?> - <?php echo e($court->court); ?> <br>
+<?php $__env->startSection('content'); ?>
 
-	<?php endforeach; ?>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>id</th>
+	      <th>Court</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+
+		<?php foreach($courts as $court): ?>
+
+			<tr>
+		      <th scope="row"><?php echo e($court->id); ?></th>
+		      <td><?php echo e($court->court); ?></td>
+		    </tr>
+
+		<?php endforeach; ?>
+
+	  </tbody>
+	</table>
+
 
 	<?php echo $courts->appends(Request::except('page'))->render(); ?>
 
 
-</body>
-</html>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

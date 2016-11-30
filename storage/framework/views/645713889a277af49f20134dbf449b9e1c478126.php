@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Persons</title>
-</head>
-<body>
+
+
+<?php $__env->startSection('content'); ?>
 
 	<table class="table">
 	  <thead>
@@ -43,5 +39,6 @@
 	<?php echo $persons->appends(Request::except('page'))->render(); ?>
 
 
-</body>
-</html>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

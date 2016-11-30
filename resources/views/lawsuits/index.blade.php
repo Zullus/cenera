@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Lawsuits</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 
 	<table class="table">
 	  <thead>
@@ -44,5 +40,4 @@
 
 	{!!$lawsuits->appends(Request::except('page'))->render()!!}
 
-</body>
-</html>
+@endsection

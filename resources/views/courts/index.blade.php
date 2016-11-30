@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Courts</title>
-</head>
-<body>
+@extends('layouts.app')
 
-	@foreach($courts as $court)
+@section('content')
 
-		{{$court->id}} - {{$court->court}} <br>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>id</th>
+	      <th>Court</th>
+	    </tr>
+	  </thead>
+	  <tbody>
 
-	@endforeach
+		@foreach($courts as $court)
+
+			<tr>
+		      <th scope="row">{{$court->id}}</th>
+		      <td>{{$court->court}}</td>
+		    </tr>
+
+		@endforeach
+
+	  </tbody>
+	</table>
+
 
 	{!!$courts->appends(Request::except('page'))->render()!!}
 
-</body>
-</html>
+@endsection

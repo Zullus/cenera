@@ -17,15 +17,13 @@
 
 Route::get('/', 'Lawsuits@index');
 
-Route::get('/persons', 'Persons@index');
+Route::get('/persons', ['as' => 'persons.index', 'uses' => 'Persons@index']);
 
-Route::get('/types', 'Types@index');
+Route::get('/types', ['as' => 'types.index', 'uses' => 'Types@index']);
 
-Route::get('/courts', 'Courts@index');
+Route::get('/courts', ['as' => 'courts.index', 'uses' => 'Courts@index']);
 
-Route::get('/persons', 'Persons@index');
-
-Route::get('/lawsuits', 'Lawsuits@index');
+Route::get('/lawsuits', ['as' => 'lawsuits.index', 'uses' => 'Lawsuits@index']);
 
 Route::auth();
 
