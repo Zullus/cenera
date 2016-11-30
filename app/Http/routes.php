@@ -25,7 +25,7 @@ Route::get('/courts', 'Courts@index');
 
 Route::get('/persons', 'Persons@index');
 
-Route::get('/persons', 'Lawsuits@index');
+Route::get('/lawsuits', 'Lawsuits@index');
 
 Route::auth();
 
