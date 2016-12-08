@@ -14,7 +14,7 @@
 	      <th>Court</th>
 	      <th>Process</th>
 	      <th>Offense</th>
-	      <th></th>
+	      <th>Attorney</th>
 	    </tr>
 	  </thead>
 	  <tbody>
