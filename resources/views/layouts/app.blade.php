@@ -49,7 +49,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{route('lawsuits.index')}}">Lawsuits</a></li>
-                    <li><a href="{{route('persons.index')}}">Persons</a></li>
+                    <li><a href="{{route('clients.index')}}">Persons</a></li>
                     <li><a href="{{route('courts.index')}}">Courts</a></li>
                     <li><a href="{{route('types.index')}}">Types</a></li>
                 </ul>

@@ -22,12 +22,12 @@
 
 	    	<tr>
 		      <th scope="row">{{$lawsuit->id}}</th>
-		      <td>{{$lawsuit->type}}</td>
+		      <td>{{$lawsuit->types['type']}}</td>
 		      <td>{{$lawsuit->process_number}}</td>
-		      <td>{{$lawsuit->client}}</td>
-		      <td>{{$lawsuit->opponent}}</td>
-		      <td>{{$lawsuit->responsable}}</td>
-		      <td>{{$lawsuit->court}}</td>
+		      <td>{{$lawsuit->clients['name']}}</td>
+		      <td>{{$lawsuit->opponents['name']}}</td>
+		      <td>{{$lawsuit->responsables['name']}}</td>
+		      <td>{{$lawsuit->courts['court']}}</td>
 		      <td>{{$lawsuit->process}}</td>
 		      <td>{{$lawsuit->offense}}</td>
 		      <td>{{$lawsuit->attorney}}</td>

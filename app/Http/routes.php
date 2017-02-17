@@ -17,7 +17,7 @@
 
 Route::get('/', 'Lawsuits@index');
 
-Route::get('/persons', ['as' => 'persons.index', 'uses' => 'Persons@index']);
+Route::get('/persons', ['as' => 'clients.index', 'uses' => 'ClientController@index']);
 
 Route::get('/types', ['as' => 'types.index', 'uses' => 'Types@index']);
 

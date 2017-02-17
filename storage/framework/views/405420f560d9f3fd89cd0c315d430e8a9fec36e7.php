@@ -49,7 +49,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="<?php echo e(url('/home')); ?>">Home</a></li>
                     <li><a href="<?php echo e(route('lawsuits.index')); ?>">Lawsuits</a></li>
-                    <li><a href="<?php echo e(route('persons.index')); ?>">Persons</a></li>
+                    <li><a href="<?php echo e(route('clients.index')); ?>">Persons</a></li>
                     <li><a href="<?php echo e(route('courts.index')); ?>">Courts</a></li>
                     <li><a href="<?php echo e(route('types.index')); ?>">Types</a></li>
                 </ul>

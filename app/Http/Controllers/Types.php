@@ -10,7 +10,7 @@ class types extends Controller
 {
     public function index(){
 
-    	$types = \App\Types::all();
+    	$types = \App\Type::all();
 
     	return view('types.index')->with(compact('types'));
 

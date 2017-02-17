@@ -5,9 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Types extends Model
+class Court extends Model
 {
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+
+    public function lawsuits(){
+
+    	return $this->hasMany('App\Lawsuit');
+    }
 }

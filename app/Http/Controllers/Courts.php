@@ -11,7 +11,7 @@ class courts extends Controller
 
 	public function index(){
 
-		$courts = \App\Courts::paginate(env('PAGINATION_ITEMS', 20));
+		$courts = \App\Court::paginate(env('PAGINATION_ITEMS', 20));
 
     	return view('courts.index')->with(compact('courts'));
 	}

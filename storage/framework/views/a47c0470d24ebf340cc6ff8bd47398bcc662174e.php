@@ -22,12 +22,12 @@
 
 	    	<tr>
 		      <th scope="row"><?php echo e($lawsuit->id); ?></th>
-		      <td><?php echo e($lawsuit->type); ?></td>
+		      <td><?php echo e($lawsuit->types['type']); ?></td>
 		      <td><?php echo e($lawsuit->process_number); ?></td>
-		      <td><?php echo e($lawsuit->client); ?></td>
-		      <td><?php echo e($lawsuit->opponent); ?></td>
-		      <td><?php echo e($lawsuit->responsable); ?></td>
-		      <td><?php echo e($lawsuit->court); ?></td>
+		      <td><?php echo e($lawsuit->clients['name']); ?></td>
+		      <td><?php echo e($lawsuit->opponents['name']); ?></td>
+		      <td><?php echo e($lawsuit->responsables['name']); ?></td>
+		      <td><?php echo e($lawsuit->courts['court']); ?></td>
 		      <td><?php echo e($lawsuit->process); ?></td>
 		      <td><?php echo e($lawsuit->offense); ?></td>
 		      <td><?php echo e($lawsuit->attorney); ?></td>
