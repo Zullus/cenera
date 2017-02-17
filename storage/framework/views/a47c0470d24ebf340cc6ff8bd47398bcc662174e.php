@@ -21,7 +21,12 @@
 	    <?php foreach($lawsuits as $lawsuit): ?>
 
 	    	<tr>
-		      <th scope="row"><?php echo e($lawsuit->id); ?></th>
+		      <th scope="row">
+		      	<a href="<?php echo route('lawsuits.show', ['id' => $lawsuit->id]); ?>">
+		      		<?php echo e($lawsuit->id); ?>
+
+		      	</a>
+		      </th>
 		      <td><?php echo e($lawsuit->types['type']); ?></td>
 		      <td><?php echo e($lawsuit->process_number); ?></td>
 		      <td>

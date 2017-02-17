@@ -20,7 +20,11 @@
 	    @foreach($clients as $client)
 
 	    	<tr>
-		      <th scope="row">{{$client->id}}</th>
+		      <th scope="row">
+		      	<a href="{!! route('clients.show', ['id' => $client->id]) !!}">
+		      		{{$client->id}}
+		      	</a>
+		      </th>
 		      <td>{{$client->types['type']}}</td>
 		      <td>{{$client->lastname}}, {{$client->name}}</td>
 		      <td>{{$client->contac}}</td>

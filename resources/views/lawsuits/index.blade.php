@@ -21,7 +21,11 @@
 	    @foreach($lawsuits as $lawsuit)
 
 	    	<tr>
-		      <th scope="row">{{$lawsuit->id}}</th>
+		      <th scope="row">
+		      	<a href="{!! route('lawsuits.show', ['id' => $lawsuit->id]) !!}">
+		      		{{$lawsuit->id}}
+		      	</a>
+		      </th>
 		      <td>{{$lawsuit->types['type']}}</td>
 		      <td>{{$lawsuit->process_number}}</td>
 		      <td>
