@@ -30,7 +30,7 @@
 		      <td><?php echo e($lawsuit->courts['court']); ?></td>
 		      <td><?php echo e($lawsuit->process); ?></td>
 		      <td><?php echo e($lawsuit->offense); ?></td>
-		      <td><?php echo e($lawsuit->attorney); ?></td>
+		      <td><?php echo e($lawsuit->attorneys['name']); ?></td>
 		    </tr>
 
 		<?php endforeach; ?>

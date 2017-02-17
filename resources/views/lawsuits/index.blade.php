@@ -30,7 +30,7 @@
 		      <td>{{$lawsuit->courts['court']}}</td>
 		      <td>{{$lawsuit->process}}</td>
 		      <td>{{$lawsuit->offense}}</td>
-		      <td>{{$lawsuit->attorney}}</td>
+		      <td>{{$lawsuit->attorneys['name']}}</td>
 		    </tr>
 
 		@endforeach

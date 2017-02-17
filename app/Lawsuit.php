@@ -17,6 +17,12 @@ class Lawsuit extends Model
 
   	}
 
+    public function older_clients(){
+
+    	return $this->belongsTo('App\Client', 'older_client');
+
+  	}
+
     public function opponents(){
 
     	return $this->belongsTo('App\Client', 'opponent');
@@ -26,6 +32,18 @@ class Lawsuit extends Model
     public function responsables(){
 
     	return $this->belongsTo('App\Client', 'responsable');
+
+  	}
+
+  	public function older_responsables(){
+
+    	return $this->belongsTo('App\Client', 'older_responsable');
+
+  	}
+
+    public function attorneys(){
+
+    	return $this->belongsTo('App\Client', 'attorney');
 
   	}
 
