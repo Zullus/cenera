@@ -24,13 +24,33 @@
 		      <th scope="row">{{$lawsuit->id}}</th>
 		      <td>{{$lawsuit->types['type']}}</td>
 		      <td>{{$lawsuit->process_number}}</td>
-		      <td>{{$lawsuit->clients['name']}}</td>
-		      <td>{{$lawsuit->opponents['name']}}</td>
-		      <td>{{$lawsuit->responsables['name']}}</td>
-		      <td>{{$lawsuit->courts['court']}}</td>
+		      <td>
+		      	<a href="{!! route('clients.show', ['id' => $lawsuit->client]) !!}">
+		      		{{$lawsuit->clients['name']}}
+		      	</a>
+		      </td>
+		      <td>
+		      	<a href="{!! route('clients.show', ['id' => $lawsuit->opponent]) !!}">
+		      		{{$lawsuit->opponents['name']}}
+		        </a>
+		  	  </td>
+		      <td>
+		      	<a href="{!! route('clients.show', ['id' => $lawsuit->responsable]) !!}">
+		      		{{$lawsuit->responsables['name']}}
+		      	</a>
+		      </td>
+		      <td>
+		      	<a href="{!! route('courts.show', ['id' => $lawsuit->court]) !!}">
+		      		{{$lawsuit->courts['court']}}
+		      	</a>
+		      </td>
 		      <td>{{$lawsuit->process}}</td>
 		      <td>{{$lawsuit->offense}}</td>
-		      <td>{{$lawsuit->attorneys['name']}}</td>
+		      <td>
+		      	<a href="{!! route('clients.show', ['id' => $lawsuit->attorney]) !!}">
+		      		{{$lawsuit->attorneys['name']}}
+		      	</a>
+		      </td>
 		    </tr>
 
 		@endforeach

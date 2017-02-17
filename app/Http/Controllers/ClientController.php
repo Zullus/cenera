@@ -14,4 +14,13 @@ class ClientController extends Controller
 
 		return view('clients.index')->with(compact('clients'));
 
-    }}
+    }
+
+    public function show($id){
+
+    	$client = \App\Client::with('types')->find($id);
+
+    	return view('clients.show')->with(compact('client'));
+    }
+
+}

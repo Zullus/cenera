@@ -24,13 +24,38 @@
 		      <th scope="row"><?php echo e($lawsuit->id); ?></th>
 		      <td><?php echo e($lawsuit->types['type']); ?></td>
 		      <td><?php echo e($lawsuit->process_number); ?></td>
-		      <td><?php echo e($lawsuit->clients['name']); ?></td>
-		      <td><?php echo e($lawsuit->opponents['name']); ?></td>
-		      <td><?php echo e($lawsuit->responsables['name']); ?></td>
-		      <td><?php echo e($lawsuit->courts['court']); ?></td>
+		      <td>
+		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->client]); ?>">
+		      		<?php echo e($lawsuit->clients['name']); ?>
+
+		      	</a>
+		      </td>
+		      <td>
+		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->opponent]); ?>">
+		      		<?php echo e($lawsuit->opponents['name']); ?>
+
+		        </a>
+		  	  </td>
+		      <td>
+		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->responsable]); ?>">
+		      		<?php echo e($lawsuit->responsables['name']); ?>
+
+		      	</a>
+		      </td>
+		      <td>
+		      	<a href="<?php echo route('courts.show', ['id' => $lawsuit->court]); ?>">
+		      		<?php echo e($lawsuit->courts['court']); ?>
+
+		      	</a>
+		      </td>
 		      <td><?php echo e($lawsuit->process); ?></td>
 		      <td><?php echo e($lawsuit->offense); ?></td>
-		      <td><?php echo e($lawsuit->attorneys['name']); ?></td>
+		      <td>
+		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->attorney]); ?>">
+		      		<?php echo e($lawsuit->attorneys['name']); ?>
+
+		      	</a>
+		      </td>
 		    </tr>
 
 		<?php endforeach; ?>

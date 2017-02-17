@@ -15,4 +15,11 @@ class courts extends Controller
 
     	return view('courts.index')->with(compact('courts'));
 	}
+
+    public function show($id){
+
+    	$court = \App\Court::find($id);
+
+    	return view('courts.show')->with(compact('court'));
+    }
 }
