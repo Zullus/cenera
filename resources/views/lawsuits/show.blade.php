@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h2>Data form lawsuit #{{$lawsuit->id}}</h2>
+	<h2>Data form lawsuit #{{$lawsuit->process_number}}</h2>
 
 	<table class="table">
 		<thead>

@@ -27,6 +27,7 @@ Route::group(['prefix' => 'persons'], function(){
 	Route::post('store', ['as' => 'clients.store', 'uses' => 'ClientController@store']);
 	Route::get('{id}/edit', ['as' => 'clients.edit', 'uses' => 'ClientController@edit']);
 	Route::post('{id}/update', ['as' => 'clients.update', 'uses' => 'ClientController@update']);
+	Route::post('{id}/store', ['as' => 'clients.store', 'uses' => 'ClientController@store']);
 	Route::get('{id}/delete', ['as' => 'clients.destroy', 'uses' => 'ClientController@destroy']);
 
 });
@@ -41,6 +42,7 @@ Route::group(['prefix' => 'types'], function(){
 	Route::post('store', ['as' => 'types.store', 'uses' => 'Types@store']);
 	Route::get('{id}/edit', ['as' => 'types.edit', 'uses' => 'Types@edit']);
 	Route::post('{id}/update', ['as' => 'types.update', 'uses' => 'Types@update']);
+	Route::post('{id}/store', ['as' => 'types.store', 'uses' => 'Types@store']);
 	Route::get('{id}/delete', ['as' => 'types.destroy', 'uses' => 'Types@destroy']);
 
 });
@@ -55,6 +57,7 @@ Route::group(['prefix' => 'courts'], function(){
 	Route::post('store', ['as' => 'courts.store', 'uses' => 'Courts@store']);
 	Route::get('{id}/edit', ['as' => 'courts.edit', 'uses' => 'Courts@edit']);
 	Route::post('{id}/update', ['as' => 'courts.update', 'uses' => 'Courts@update']);
+	Route::post('{id}/store', ['as' => 'courts.store', 'uses' => 'Courts@store']);
 	Route::get('{id}/delete', ['as' => 'courts.destroy', 'uses' => 'Courts@destroy']);
 
 });
@@ -69,6 +72,7 @@ Route::group(['prefix' => 'lawsuits'], function(){
 	Route::post('store', ['as' => 'lawsuits.store', 'uses' => 'Lawsuits@store']);
 	Route::get('{id}/edit', ['as' => 'lawsuits.edit', 'uses' => 'Lawsuits@edit']);
 	Route::post('{id}/update', ['as' => 'lawsuits.update', 'uses' => 'Lawsuits@update']);
+	Route::post('{id}/store', ['as' => 'lawsuits.store', 'uses' => 'Lawsuits@store']);
 	Route::get('{id}/delete', ['as' => 'lawsuits.destroy', 'uses' => 'Lawsuits@destroy']);
 
 });
