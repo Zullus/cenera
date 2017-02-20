@@ -64,4 +64,10 @@
 
 	{!!$lawsuits->appends(Request::except('page'))->render()!!}
 
+	<br>
+
+	<a href="{!! route('lawsuits.create') !!}">
+		<button class="btn btn-primary">Add New Lawsuit</button>
+	</a>
+
 @endsection

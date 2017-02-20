@@ -4,7 +4,16 @@
 
 	<h2>Data form lawsuit #{{$lawsuit->process_number}}</h2>
 
+	@if(Session::has('success'))
+	<div class="alert alert-success alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>Sucess!</strong> {{Session::get('success')}}
+	</div>
+	@endif
+
 	{!! Form::open(['url' => route('lawsuits.update', ['id' => $selectedLawsuit]), 'class' => 'category-form']) !!}
+
+	{!! Form::hidden('id', $lawsuit->id) !!}
 
 	<table class="table">
 		<thead>
@@ -27,7 +36,8 @@
 			<tr>
 				<td>Client</td>
 				<td>
-					{!! Form::select('client', $allclients, $lawsuit->client, ['class' => 'form-control select2', 'placeholder' => 'Select a Client']) !!}</td>
+					{!! Form::select('client', $allclients, $lawsuit->client, ['class' => 'form-control select2', 'placeholder' => 'Select a Client']) !!}
+				</td>
 			</tr>
 			<tr>
 				<td>Opponent</td>
@@ -56,7 +66,7 @@
 			<tr>
 				<td>Offense</td>
 				<td>
-					{!! Form::textarea ('ffense', $lawsuit->offense, ['class' => 'form-control select2', 'placeholder' => 'Type a Offense']) !!}
+					{!! Form::textarea ('offense', $lawsuit->offense, ['class' => 'form-control select2', 'placeholder' => 'Type a Offense']) !!}
 				</td>
 			</tr>
 			<tr>

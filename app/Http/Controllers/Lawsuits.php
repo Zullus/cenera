@@ -55,18 +55,33 @@ class lawsuits extends Controller
     	return view('lawsuits.edit')->with(compact('lawsuit', 'alltypes', 'selectedLawsuit', 'allclients', 'allcourts'));
     }
 
-    public function update($id){
+    public function update(Request $request){
 
-    	$lawsuit = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->find($id);
+    	$input = $request->all();
+
+    	$lawsuit = \App\Lawsuit::find($input['id']);
+	    $lawsuit->fill($input);
+	    $lawsuit->save();
+
+	    return redirect()->back()->with('success', 'Lawsuit update with success!');
+    }
+
+    public function store(Request $request){
+
+    	$input = $request->all();
+
+    	$lawsuit = new \App\Lawsuit;
+	    $lawsuit->fill($request);
+	    $lawsuit->save();
 
     	return view('lawsuits.edit')->with(compact('lawsuit'));
     }
 
-    public function store($id){
+    public function create(){
 
-    	$lawsuit = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->find($id);
+    	$lawsuit= [];
 
-    	return view('lawsuits.edit')->with(compact('lawsuit'));
+    	return view('lawsuits.new')->with(compact('lawsuit'));
     }
 
 

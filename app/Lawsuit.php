@@ -11,6 +11,8 @@ class Lawsuit extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $fillable = ['id'];
+
     public function clients(){
 
     	return $this->belongsTo('App\Client', 'client');

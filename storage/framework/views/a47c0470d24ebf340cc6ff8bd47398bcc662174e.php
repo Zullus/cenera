@@ -71,5 +71,11 @@
 	<?php echo $lawsuits->appends(Request::except('page'))->render(); ?>
 
 
+	<br>
+
+	<a href="<?php echo route('lawsuits.create'); ?>">
+		<button class="btn btn-primary">Add New Lawsuit</button>
+	</a>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

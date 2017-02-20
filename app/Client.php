@@ -11,6 +11,8 @@ class Client extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $fillable = ['id'];
+
     public function lawsuits(){
 
     	return $this->hasMany('App\Lawsuit');

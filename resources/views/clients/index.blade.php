@@ -42,4 +42,10 @@
 
 	{!!$clients->appends(Request::except('page'))->render()!!}
 
+	<br>
+
+	<a href="{!! route('clients.create') !!}">
+		<button class="btn btn-primary">Add New Client</button>
+	</a>
+
 @endsection
