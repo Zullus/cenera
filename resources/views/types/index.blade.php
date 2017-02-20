@@ -7,7 +7,7 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Type Name</th>
+				<th>Tipo</th>
 			</tr>
 		</thead>
 

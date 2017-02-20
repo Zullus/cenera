@@ -24,67 +24,67 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>Type</td>
-				<td>{!! Form::select('types', $alltypes, $lawsuit->type, ['class' => 'form-control select2', 'placeholder' => 'Select a Type']) !!}</td>
+				<td>Tipo</td>
+				<td>{!! Form::select('types', $alltypes, $lawsuit->type, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
 			</tr>
 			<tr>
-				<td>Process Number</td>
+				<td>Número de proceso</td>
 				<td>
-					{!! Form::text('process_number', $lawsuit->process_number, ['class' => 'form-control select2', 'placeholder' => 'Type a Process Number']) !!}
+					{!! Form::text('process_number', $lawsuit->process_number, ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Client</td>
+				<td>Cliente</td>
 				<td>
-					{!! Form::select('client', $allclients, $lawsuit->client, ['class' => 'form-control select2', 'placeholder' => 'Select a Client']) !!}
+					{!! Form::select('client', $allclients, $lawsuit->client, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Cliente']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Opponent</td>
+				<td>Adversario</td>
 				<td>
-					{!! Form::select('opponent', $allclients, $lawsuit->opponent, ['class' => 'form-control select2', 'placeholder' => 'Select a Opponent']) !!}
+					{!! Form::select('opponent', $allclients, $lawsuit->opponent, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Adversario']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Responsable</td>
 				<td>
-					{!! Form::select('responsable', $allclients, $lawsuit->responsable, ['class' => 'form-control select2', 'placeholder' => 'Select a Responsable']) !!}
+					{!! Form::select('responsable', $allclients, $lawsuit->responsable, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Responsable']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Court</td>
+				<td>Corte</td>
 				<td>
-					{!! Form::select('court', $allcourts, $lawsuit->court, ['class' => 'form-control select2', 'placeholder' => 'Select a Court']) !!}
+					{!! Form::select('court', $allcourts, $lawsuit->court, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Process</td>
+				<td>Proceso</td>
 				<td>
-					{!! Form::text('process', $lawsuit->process, ['class' => 'form-control select2', 'placeholder' => 'Type a Process']) !!}
+					{!! Form::text('process', $lawsuit->process, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Offense</td>
+				<td>Ofensa</td>
 				<td>
-					{!! Form::textarea ('offense', $lawsuit->offense, ['class' => 'form-control select2', 'placeholder' => 'Type a Offense']) !!}
+					{!! Form::textarea ('offense', $lawsuit->offense, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Attorney</td>
+				<td>Abogado</td>
 				<td>
-					{!! Form::select('attorney', $allclients, $lawsuit->attorney, ['class' => 'form-control select2', 'placeholder' => 'Select a Attorney']) !!}
+					{!! Form::select('attorney', $allclients, $lawsuit->attorney, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<button type="submit" class="btn btn-info">Send</button>
+	<button type="submit" class="btn btn-info">Enviar</button>
 
 	{!! Form::close() !!}
 
 	<div class="btn-group" role="group" aria-label="...">
 	  <a href="{!! route('lawsuits.index') !!}">
-	  	<button type="button" class="btn btn-default">Back</button>
+	  	<button type="button" class="btn btn-default">Volver</button>
 	  </a>
 	</div>
 

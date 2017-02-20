@@ -2,13 +2,13 @@
 
 @section('content')
 
-	<h2>Data form lawsuit #{{$lawsuit->process_number}}</h2>
+	<h2>Formulario de datos pleito #{{$lawsuit->process_number}}</h2>
 
 	<table class="table">
 		<thead>
 			<tr>
-				<td><strong>Fields</strong></td>
-				<td><strong>Values</strong></td>
+				<td><strong>Campos</strong></td>
+				<td><strong>Valor</strong></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -17,19 +17,19 @@
 				<td>{{$lawsuit->id}}</td>
 			</tr>
 			<tr>
-				<td>Type</td>
+				<td>Tipo</td>
 				<td>{{$lawsuit->types['type']}}</td>
 			</tr>
 			<tr>
-				<td>Process Number</td>
+				<td>Número de proceso</td>
 				<td>{{$lawsuit->process_number}}</td>
 			</tr>
 			<tr>
-				<td>Client</td>
+				<td>Cliente</td>
 				<td>{{$lawsuit->clients['name']}}</td>
 			</tr>
 			<tr>
-				<td>Opponent</td>
+				<td>Adversario</td>
 				<td>{{$lawsuit->opponents['name']}}</td>
 			</tr>
 			<tr>
@@ -37,19 +37,19 @@
 				<td>{{$lawsuit->responsables['name']}}</td>
 			</tr>
 			<tr>
-				<td>Court</td>
+				<td>Corte</td>
 				<td>{{$lawsuit->courts['court']}}</td>
 			</tr>
 			<tr>
-				<td>Process</td>
+				<td>Proceso</td>
 				<td>{{$lawsuit->process}}</td>
 			</tr>
 			<tr>
-				<td>Offense</td>
+				<td>Ofensa</td>
 				<td>{{$lawsuit->offense}}</td>
 			</tr>
 			<tr>
-				<td>Attorney</td>
+				<td>Abogado</td>
 				<td>{{$lawsuit->attorneys['name']}}</td>
 			</tr>
 		</tbody>
@@ -57,15 +57,15 @@
 
 	<div class="btn-group" role="group" aria-label="...">
 	  <a href="{!! route('lawsuits.index') !!}">
-	  	<button type="button" class="btn btn-default">Back</button>
+	  	<button type="button" class="btn btn-default">Volver</button>
 	  </a>
 
 	  <a href="{!! route('lawsuits.edit', ['id' => $lawsuit->id]) !!}">
-	  	<button type="button" class="btn btn-primary">Edit</button>
+	  	<button type="button" class="btn btn-primary">Editar</button>
 	  </a>
 
 	  <a href="{!! route('lawsuits.destroy', ['id' => $lawsuit->id]) !!}">
-	  	<button type="button" class="btn btn-danger">Delete</button>
+	  	<button type="button" class="btn btn-danger">Apagar</button>
 	  </a>
 	</div>
 

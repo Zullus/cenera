@@ -6,15 +6,15 @@
 	  <thead>
 	    <tr>
 	      <th>id</th>
-	      <th>Type</th>
-	      <th>Process Number</th>
-	      <th>Client</th>
-	      <th>Opponent</th>
+	      <th>Tipo</th>
+	      <th>Número de proceso</th>
+	      <th>Cliente</th>
+	      <th>Adversario</th>
 	      <th>Responsable</th>
-	      <th>Court</th>
-	      <th>Process</th>
-	      <th>Offense</th>
-	      <th>Attorney</th>
+	      <th>Corte</th>
+	      <th>Proceso</th>
+	      <th>Ofensa</th>
+	      <th>Abogado</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -67,7 +67,7 @@
 	<br>
 
 	<a href="{!! route('lawsuits.create') !!}">
-		<button class="btn btn-primary">Add New Lawsuit</button>
+		<button class="btn btn-primary">Añadir nuevo Pleitos</button>
 	</a>
 
 @endsection

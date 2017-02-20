@@ -13,31 +13,27 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>id</td>
-				<td>{{$client->id}}</td>
-			</tr>
-			<tr>
-				<td>Name</td>
+				<td>Nombre</td>
 				<td>{{$client->name}}</td>
 			</tr>
 			<tr>
-				<td>Last Name</td>
+				<td>Apellido</td>
 				<td>{{$client->lastname}}</td>
 			</tr>
 			<tr>
-				<td>Contact</td>
+				<td>Contacto</td>
 				<td>{{$client->contact}}</td>
 			</tr>
 			<tr>
-				<td>Document</td>
+				<td>DNI</td>
 				<td>{{$client->document}}</td>
 			</tr>
 			<tr>
-				<td>Adrress</td>
+				<td>Dirección</td>
 				<td>{{$client->adrress}}</td>
 			</tr>
 			<tr>
-				<td>Phone</td>
+				<td>Teléfono</td>
 				<td>{{$client->phone}}</td>
 			</tr>
 			<tr>
@@ -45,7 +41,7 @@
 				<td>{{$client->email}}</td>
 			</tr>
 			<tr>
-				<td>Mobile</td>
+				<td>Móvil</td>
 				<td>{{$client->mobile}}</td>
 			</tr>
 			<tr>
@@ -53,7 +49,7 @@
 				<td>{{$client->fax}}</td>
 			</tr>
 			<tr>
-				<td>Type</td>
+				<td>Tipo</td>
 				<td>{{$client->types['type']}}</td>
 			</tr>
 		</tbody>
@@ -61,15 +57,15 @@
 
 	<div class="btn-group" role="group" aria-label="...">
 	  <a href="{!! route('clients.index') !!}">
-	  	<button type="button" class="btn btn-default">Back</button>
+	  	<button type="button" class="btn btn-default">Volver</button>
 	  </a>
 
 	  <a href="{!! route('clients.edit', ['id' => $client->id]) !!}">
-	  	<button type="button" class="btn btn-primary">Edit</button>
+	  	<button type="button" class="btn btn-primary">Editar</button>
 	  </a>
 
 	  <a href="{!! route('clients.destroy', ['id' => $client->id]) !!}">
-	  	<button type="button" class="btn btn-danger">Delete</button>
+	  	<button type="button" class="btn btn-danger">Apagar</button>
 	  </a>
 	</div>
 

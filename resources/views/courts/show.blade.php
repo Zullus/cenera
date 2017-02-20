@@ -17,7 +17,7 @@
 				<td>{{$court->id}}</td>
 			</tr>
 			<tr>
-				<td>Type</td>
+				<td>Courte</td>
 				<td>{{$court->court}}</td>
 			</tr>
 		</tbody>
@@ -25,15 +25,15 @@
 
 	<div class="btn-group" role="group" aria-label="...">
 	  <a href="{!! route('courts.index') !!}">
-	  	<button type="button" class="btn btn-default">Back</button>
+	  	<button type="button" class="btn btn-default">Volver</button>
 	  </a>
 
 	  <a href="{!! route('courts.edit', ['id' => $court->id]) !!}">
-	  	<button type="button" class="btn btn-primary">Edit</button>
+	  	<button type="button" class="btn btn-primary">Editar</button>
 	  </a>
 
 	  <a href="{!! route('courts.destroy', ['id' => $court->id]) !!}">
-	  	<button type="button" class="btn btn-danger">Delete</button>
+	  	<button type="button" class="btn btn-danger">Apagar</button>
 	  </a>
 	</div>
 

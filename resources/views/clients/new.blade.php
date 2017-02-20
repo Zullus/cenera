@@ -17,75 +17,75 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<td><strong>Fields</strong></td>
-				<td><strong>Values</strong></td>
+				<td><strong>Campos</strong></td>
+				<td><strong>Valores</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Name</td>
+				<td>Nombre</td>
 				<td>
-					{!! Form::text('name', null, ['class' => 'form-control select2', 'placeholder' => 'Type a Name']) !!}
+					{!! Form::text('name', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Nombre']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Last Name</td>
+				<td>Apellido</td>
 				<td>
-					{!! Form::text('lastname', null, ['class' => 'form-control select2', 'placeholder' => 'Type a Last Name']) !!}
+					{!! Form::text('lastname', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Apellido']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Contact</td>
+				<td>Contacto</td>
 				<td>
-					{!! Form::text('contact', null, ['class' => 'form-control select2', 'placeholder' => 'Type a Last Contact']) !!}
+					{!! Form::text('contact', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Contacto']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Document</td>
+				<td>DNI</td>
 				<td>
-					{!! Form::text('document', null, ['class' => 'form-control select2', 'placeholder' => 'Type a document']) !!}
+					{!! Form::text('document', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un DNI']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Adrress</td>
+				<td>Dirección</td>
 				<td>
-					{!! Form::text('adrress', null, ['class' => 'form-control select2', 'placeholder' => 'Type a document']) !!}
+					{!! Form::text('adrress', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Dirección']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Phone</td>
+				<td>Teléfono</td>
 				<td>
-					{!! Form::text('phone', null, ['class' => 'form-control select2', 'placeholder' => 'Type a document']) !!}
+					{!! Form::text('phone', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Teléfono']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>E-mail</td>
 				<td>
-					{!! Form::email('email', null, ['class' => 'form-control select2', 'placeholder' => 'Type a e-mail']) !!}
+					{!! Form::email('email', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un e-mail']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Mobile</td>
+				<td>Móvil</td>
 				<td>
-					{!! Form::text('mobile', null, ['class' => 'form-control select2', 'placeholder' => 'Type a mobile']) !!}
+					{!! Form::text('mobile', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Móvil']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Fax</td>
 				<td>
-					{!! Form::text('fax', null, ['class' => 'form-control select2', 'placeholder' => 'Type a fax']) !!}
+					{!! Form::text('fax', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un fax']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Type</td>
+				<td>Tipo</td>
 				<td>
-					{!! Form::select('types', $alltypes, null, ['class' => 'form-control select2', 'placeholder' => 'Select a Type']) !!}
+					{!! Form::select('types', $alltypes, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Tipo']) !!}
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<button type="submit" class="btn btn-info">Send</button>
+	<button type="submit" class="btn btn-info">Enviar</button>
 
 	{!! Form::close() !!}
 

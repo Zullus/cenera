@@ -6,13 +6,13 @@
 	  <thead>
 	    <tr>
 	      <th>id</th>
-	      <th>Type</th>
-	      <th>Client</th>
-	      <th>Contact</th>
-	      <th>Address</th>
-	      <th>Phone(s)</th>
+	      <th>Tipo</th>
+	      <th>Cliente</th>
+	      <th>Contacto</th>
+	      <th>Dirección</th>
+	      <th>Teléfono(s)</th>
 	      <th>E-mail(s)</th>
-	      <th>Mobile</th>
+	      <th>Móvil</th>
 	      <th>FAX</th>
 	    </tr>
 	  </thead>

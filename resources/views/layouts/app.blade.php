@@ -48,10 +48,10 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{route('lawsuits.index')}}">Lawsuits</a></li>
-                    <li><a href="{{route('clients.index')}}">Persons</a></li>
-                    <li><a href="{{route('courts.index')}}">Courts</a></li>
-                    <li><a href="{{route('types.index')}}">Types</a></li>
+                    <li><a href="{{route('lawsuits.index')}}">Pleitos</a></li>
+                    <li><a href="{{route('clients.index')}}">Personas</a></li>
+                    <li><a href="{{route('courts.index')}}">Tribunales</a></li>
+                    <li><a href="{{route('types.index')}}">Tipos</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

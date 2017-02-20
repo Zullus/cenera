@@ -2,12 +2,12 @@
 
 @section('content')
 
-	<h2>New Lawsuit</h2>
+	<h2>Nuevo Pleito</h2>
 
 	@if(Session::has('success'))
 	<div class="alert alert-success alert-dismissible" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Sucess!</strong> {{Session::get('success')}}
+	  <strong>Sucesso!</strong> {{Session::get('success')}}
 	</div>
 	@endif
 
@@ -16,72 +16,72 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<td><strong>Fields</strong></td>
-				<td><strong>Values</strong></td>
+				<td><strong>Campos</strong></td>
+				<td><strong>Valores</strong></td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Type</td>
-				<td>{!! Form::select('types', ['class' => 'form-control select2', 'placeholder' => 'Select a Type']) !!}</td>
+				<td>Tipo</td>
+				<td>{!! Form::select('types', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
 			</tr>
 			<tr>
-				<td>Process Number</td>
+				<td>Número de proceso</td>
 				<td>
-					{!! Form::text('process_number', ['class' => 'form-control select2', 'placeholder' => 'Type a Process Number']) !!}
+					{!! Form::text('process_number', ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Client</td>
+				<td>Cliente</td>
 				<td>
-					{!! Form::select('client', ['class' => 'form-control select2', 'placeholder' => 'Select a Client']) !!}</td>
+					{!! Form::select('client', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Cliente']) !!}</td>
 			</tr>
 			<tr>
-				<td>Opponent</td>
+				<td>Adversario</td>
 				<td>
-					{!! Form::select('opponent', ['class' => 'form-control select2', 'placeholder' => 'Select a Opponent']) !!}
+					{!! Form::select('opponent', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Adversario']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Responsable</td>
 				<td>
-					{!! Form::select('responsable', ['class' => 'form-control select2', 'placeholder' => 'Select a Responsable']) !!}
+					{!! Form::select('responsable', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Responsable']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Court</td>
+				<td>Corte</td>
 				<td>
-					{!! Form::select('court', ['class' => 'form-control select2', 'placeholder' => 'Select a Court']) !!}
+					{!! Form::select('court', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Process</td>
+				<td>Proceso</td>
 				<td>
-					{!! Form::text('process', ['class' => 'form-control select2', 'placeholder' => 'Type a Process']) !!}
+					{!! Form::text('process', ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Offense</td>
+				<td>Ofensa</td>
 				<td>
-					{!! Form::textarea ('offense', ['class' => 'form-control select2', 'placeholder' => 'Type a Offense']) !!}
+					{!! Form::textarea ('offense', ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Attorney</td>
+				<td>Abogado</td>
 				<td>
-					{!! Form::select('attorney', ['class' => 'form-control select2', 'placeholder' => 'Select a Attorney']) !!}
+					{!! Form::select('attorney', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
 				</td>
 			</tr>
 		</tbody>
 	</table>
 
-	<button type="submit" class="btn btn-info">Send</button>
+	<button type="submit" class="btn btn-info">Enviar</button>
 
 	{!! Form::close() !!}
 
 	<div class="btn-group" role="group" aria-label="...">
 	  <a href="{!! route('lawsuits.index') !!}">
-	  	<button type="button" class="btn btn-default">Back</button>
+	  	<button type="button" class="btn btn-default">Volver</button>
 	  </a>
 	</div>
 
