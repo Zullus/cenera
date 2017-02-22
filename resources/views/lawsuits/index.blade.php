@@ -2,6 +2,18 @@
 
 @section('content')
 
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-6">
+			{!! Form::open(['url' => route('lawsuits.search'), 'class' => 'category-form']) !!}
+				{!! Form::text('search', null, ['class' => 'form-control col-md-4 select2', 'placeholder' => 'Haz tu búsqueda']) !!}
+
+				<button class="btn btn-primary">Buscar</button>
+
+			{!! Form::close() !!}
+		</div>
+	</div>
+
 	<table class="table">
 	  <thead>
 	    <tr>
@@ -49,7 +61,7 @@
 		      	</a>
 		      </td>
 		      <td>{{$lawsuit->process}}</td>
-		      <td>{{$lawsuit->offense}}</td>
+		      <td>{{substr($lawsuit->offense, 0, 50)}}...</td>
 		      <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->attorney]) !!}">
 		      		{{$lawsuit->attorneys['name']}}

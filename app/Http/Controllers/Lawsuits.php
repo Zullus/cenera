@@ -84,5 +84,16 @@ class lawsuits extends Controller
     	return view('lawsuits.new')->with(compact('lawsuit'));
     }
 
+    public function search(Request $request){
+
+        $input = $request->all();
+
+        $lawsuit = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
+                ->where('process_number', $input['search'])
+                ->paginate(env('PAGINATION_ITEMS', 20));
+dd($lawsuit);
+        return view('lawsuits.show')->with(compact('lawsuit'));
+    }
+
 
 }

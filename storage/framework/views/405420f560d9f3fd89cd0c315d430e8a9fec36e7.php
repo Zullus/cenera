@@ -51,7 +51,7 @@
                     <li><a href="<?php echo e(route('lawsuits.index')); ?>">Pleitos</a></li>
                     <li><a href="<?php echo e(route('clients.index')); ?>">Personas</a></li>
                     <li><a href="<?php echo e(route('courts.index')); ?>">Tribunales</a></li>
-                    <li><a href="<?php echo e(route('types.index')); ?>">TIpos</a></li>
+                    <li><a href="<?php echo e(route('types.index')); ?>">Tipos</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
