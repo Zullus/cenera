@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h2>Data form lawsuit #{{$lawsuit->process_number}}</h2>
+	<h2>Formulario de datos pleito #{{$lawsuit->process_number}}</h2>
 
 	@if(Session::has('success'))
 	<div class="alert alert-success alert-dismissible" role="alert">

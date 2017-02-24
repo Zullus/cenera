@@ -20,7 +20,9 @@ class ClientController extends Controller
 
     	$client = \App\Client::with('types')->find($id);
 
-    	return view('clients.show')->with(compact('client'));
+        $sucesso = '';
+
+    	return view('clients.show')->with(compact('client', 'sucesso'));
     }
 
     public function edit($id){
@@ -45,10 +47,20 @@ class ClientController extends Controller
     	$input = $request->all();
 
     	$client = \App\Client::find($input['id']);
-	    $client->fill($input);
+	    //$client->fill($input);
+        $client->type     = $input['type'];
+        $client->name     = $input['name'];
+        $client->lastname = $input['lastname'];
+        $client->contact  = $input['contact'];
+        $client->adrress  = $input['adrress'];
+        $client->phone    = $input['phone'];
+        $client->email    = $input['email'];
+        $client->mobile   = $input['mobile'];
+        $client->fax      = $input['fax'];
+        $client->document = $input['document'];
 	    $client->save();
 
-	    return redirect()->back()->with('success', 'Lawsuit update with success!');
+	    return redirect()->back()->with('success', 'Actualización del cliente con éxito!');
     }
 
     public function store(Request $request){
@@ -56,10 +68,22 @@ class ClientController extends Controller
     	$input = $request->all();
 
     	$client = new \App\Client;
-	    $client->fill($request);
+	    //$client->fill($request);
+        $client->type     = $input['types'];
+        $client->name     = $input['name'];
+        $client->lastname = $input['lastname'];
+        $client->contact  = $input['contact'];
+        $client->adrress  = $input['adrress'];
+        $client->phone    = $input['phone'];
+        $client->email    = $input['email'];
+        $client->mobile   = $input['mobile'];
+        $client->fax      = $input['fax'];
+        $client->document = $input['document'];
 	    $client->save();
 
-    	return view('clients.edit')->with(compact('client'));
+        $sucesso = 'Persona ahorrar con éxito';
+
+    	return view('clients.show')->with(compact('client', 'sucesso'));
     }
 
     public function create(){
@@ -75,4 +99,17 @@ class ClientController extends Controller
     	return view('clients.new')->with(compact('client', 'alltypes'));
     }
 
+    public function destroy ($id){
+
+        $client = \App\Client::find($id);
+
+        $result = $client->delete();
+
+        if(!$result){
+            return redirect()->back()->withInput()->withErrors(['Falha ao apagar a persona']);
+        }
+
+        return redirect()->route('clients.index')->with('success', 'Persona eliminada con éxito!');//O nome aqui é escolha
+
+        }
 }

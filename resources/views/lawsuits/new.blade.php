@@ -23,53 +23,54 @@
 		<tbody>
 			<tr>
 				<td>Tipo</td>
-				<td>{!! Form::select('types', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
+				<td>{!! Form::select('types', $alltypes, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
 			</tr>
 			<tr>
 				<td>Número de proceso</td>
 				<td>
-					{!! Form::text('process_number', ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
+					{!! Form::text('process_number', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Cliente</td>
 				<td>
-					{!! Form::select('client', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Cliente']) !!}</td>
+					{!! Form::select('client', $allclients, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Cliente']) !!}
+				</td>
 			</tr>
 			<tr>
 				<td>Adversario</td>
 				<td>
-					{!! Form::select('opponent', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Adversario']) !!}
+					{!! Form::select('opponent', $allclients, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Adversario']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Responsable</td>
 				<td>
-					{!! Form::select('responsable', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Responsable']) !!}
+					{!! Form::select('responsable', $allclients, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Responsable']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Corte</td>
 				<td>
-					{!! Form::select('court', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
+					{!! Form::select('court', $allcourts, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Proceso</td>
 				<td>
-					{!! Form::text('process', ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
+					{!! Form::text('process', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Ofensa</td>
 				<td>
-					{!! Form::textarea ('offense', ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
+					{!! Form::textarea ('offense', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
 				</td>
 			</tr>
 			<tr>
 				<td>Abogado</td>
 				<td>
-					{!! Form::select('attorney', ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
+					{!! Form::select('attorney', $allclients, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
 				</td>
 			</tr>
 		</tbody>

@@ -87,13 +87,13 @@
 		</tbody>
 	</table>
 
-	<button type="submit" class="btn btn-info">Send</button>
+	<button type="submit" class="btn btn-info">Enviar</button>
 
 	{!! Form::close() !!}
 
 	<div class="btn-group" role="group" aria-label="...">
 	  <a href="{!! route('clients.index') !!}">
-	  	<button type="button" class="btn btn-default">Back</button>
+	  	<button type="button" class="btn btn-default">Volver</button>
 	  </a>
 	</div>
 

@@ -2,11 +2,26 @@
 
 @section('content')
 
+	@if(Session::has('error'))
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>Error!</strong> {{Session::get('error')}}
+	</div>
+	@endif
+
+	@if($busca != '')
+	<p>
+		<strong>
+			Búsca por: {{$busca}}
+		</strong>
+	</p>
+	@endif
+
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-6">
 			{!! Form::open(['url' => route('lawsuits.search'), 'class' => 'category-form']) !!}
-				{!! Form::text('search', null, ['class' => 'form-control col-md-4 select2', 'placeholder' => 'Haz tu búsqueda']) !!}
+				{!! Form::text('search', $busca, ['class' => 'form-control col-md-4 select2', 'placeholder' => 'Haz tu búsqueda por número de proceso']) !!}
 
 				<button class="btn btn-primary">Buscar</button>
 
