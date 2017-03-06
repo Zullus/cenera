@@ -171,8 +171,17 @@ class lawsuits extends Controller
 
             }
 
-            $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
-                     ->where('process_number', 'like', '%'.$busca.'%')->paginate(env('PAGINATION_ITEMS', 20));
+            $lawsuits = DB::table('vw_lawsuits')
+                ->select('id', 'client', 'opponent', 'responsable', 'court', 'attorney', 'process_number', 'process', 'offense', 'name', 'lastname', 'typename', 'courtname', 'opponentname', 'opponentlastname', 'responsablename', 'responsablelastname', 'attorneyname', 'attorneylastname')
+                ->where("name", 'like', "%$busca%")
+                ->orWhere("lastname", 'like', "%$busca%")
+                ->orwhere("opponentname", 'like', "%$busca%")
+                ->orWhere("opponentlastname", 'like', "%$busca%")
+                ->orwhere("responsablename", 'like', "%$busca%")
+                ->orWhere("responsablelastname", 'like', "%$busca%")
+                ->orwhere("attorneyname", 'like', "%$busca%")
+                ->orWhere("attorneylastname", 'like', "%$busca%")
+                ->paginate(env('PAGINATION_ITEMS', 20));
 
             return view('lawsuits.index')->with(compact('lawsuits', 'busca'));
 

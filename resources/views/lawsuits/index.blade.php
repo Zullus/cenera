@@ -21,7 +21,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-6">
 			{!! Form::open(['url' => route('lawsuits.search'), 'class' => 'category-form']) !!}
-				{!! Form::text('search', $busca, ['class' => 'form-control col-md-4 select2', 'placeholder' => 'Haz tu búsqueda por número de proceso']) !!}
+				{!! Form::text('search', $busca, ['class' => 'form-control col-md-4 select2', 'placeholder' => 'Haz tu búsqueda por nombre']) !!}
 
 				<button class="btn btn-primary">Buscar</button>
 
@@ -57,35 +57,71 @@
 		      	@if(isset($lawsuit->types['type']))
 		      		{{$lawsuit->types['type']}}
 		      	@else
-					{{$lawsuit->type}}
+					{{$lawsuit->typename}}
 				@endif
 		      	</td>
 		      <td>{{$lawsuit->process_number}}</td>
 		      <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->client]) !!}">
-		      		{{$lawsuit->clients['name']}}
+		      		@if(isset($lawsuit->clients['name']))
+			      		{{$lawsuit->clients['name']}}
+			      	@else
+			      		@if($lawsuit->lastname != '')
+			      			{{$lawsuit->lastname}}, 
+			      		@endif
+
+						{{$lawsuit->name}}
+					@endif
 		      	</a>
 		      </td>
 		      <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->opponent]) !!}">
-		      		{{$lawsuit->opponents['name']}}
+		      		@if(isset($lawsuit->opponents['name']))
+			      		{{$lawsuit->opponents['name']}}
+			      	@else
+			      		@if($lawsuit->opponentlastname != '')
+			      			{{$lawsuit->opponentlastname}}, 
+			      		@endif
+
+						{{$lawsuit->opponentname}}
+					@endif
 		        </a>
 		  	  </td>
 		      <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->responsable]) !!}">
-		      		{{$lawsuit->responsables['name']}}
+		      		@if(isset($lawsuit->responsables['name']))
+			      		{{$lawsuit->responsables['name']}}
+			      	@else
+			      		@if($lawsuit->responsablelastname != '')
+			      			{{$lawsuit->responsablelastname}}, 
+			      		@endif
+
+						{{$lawsuit->responsablename}}
+					@endif
 		      	</a>
 		      </td>
 		      <td>
 		      	<a href="{!! route('courts.show', ['id' => $lawsuit->court]) !!}">
-		      		{{$lawsuit->courts['court']}}
+		      		@if(isset($lawsuit->courts['name']))
+			      		{{$lawsuit->courts['name']}}
+			      	@else
+						{{$lawsuit->courtname}}
+					@endif
 		      	</a>
 		      </td>
 		      <td>{{$lawsuit->process}}</td>
 		      <td>{{substr($lawsuit->offense, 0, 50)}}...</td>
 		      <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->attorney]) !!}">
-		      		{{$lawsuit->attorneys['name']}}
+		      		@if(isset($lawsuit->attorneys['name']))
+			      		{{$lawsuit->attorneys['name']}}
+			      	@else
+			      		@if($lawsuit->attorneylastname != '')
+			      			{{$lawsuit->attorneylastname}}, 
+			      		@endif
+
+						{{$lawsuit->attorneyname}}
+					@endif
 		      	</a>
 		      </td>
 		    </tr>
