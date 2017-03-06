@@ -147,6 +147,10 @@ class lawsuits extends Controller
             ->orWhere("responsablelastname", 'like', "%$busca%")
             ->orwhere("attorneyname", 'like', "%$busca%")
             ->orWhere("attorneylastname", 'like', "%$busca%")
+            ->orWhere("courtname", 'like', "%$busca%")
+            ->orWhere("offense", 'like', "%$busca%")
+            ->orWhere("process", 'like', "%$busca%")
+            ->orWhere("process_number", 'like', "%$busca%")
             ->count();
 
         if($total > 0){
@@ -161,6 +165,10 @@ class lawsuits extends Controller
                 ->orWhere("responsablelastname", 'like', "%$busca%")
                 ->orwhere("attorneyname", 'like', "%$busca%")
                 ->orWhere("attorneylastname", 'like', "%$busca%")
+                ->orWhere("courtname", 'like', "%$busca%")
+                ->orWhere("offense", 'like', "%$busca%")
+                ->orWhere("process", 'like', "%$busca%")
+                ->orWhere("process_number", 'like', "%$busca%")
                 ->get();
 
             if($total == 1){
@@ -181,6 +189,10 @@ class lawsuits extends Controller
                 ->orWhere("responsablelastname", 'like', "%$busca%")
                 ->orwhere("attorneyname", 'like', "%$busca%")
                 ->orWhere("attorneylastname", 'like', "%$busca%")
+                ->orWhere("courtname", 'like', "%$busca%")
+                ->orWhere("offense", 'like', "%$busca%")
+                ->orWhere("process", 'like', "%$busca%")
+                ->orWhere("process_number", 'like', "%$busca%")
                 ->paginate(env('PAGINATION_ITEMS', 20));
 
             return view('lawsuits.index')->with(compact('lawsuits', 'busca'));
