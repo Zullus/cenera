@@ -59,7 +59,15 @@
 
 		      	</a>
 		      </th>
-		      <td><?php echo e($lawsuit->types['type']); ?></td>
+		      <td>
+		      	<?php if(isset($lawsuit->types['type'])): ?>
+		      		<?php echo e($lawsuit->types['type']); ?>
+
+		      	<?php else: ?>
+					<?php echo e($lawsuit->type); ?>
+
+				<?php endif; ?>
+		      	</td>
 		      <td><?php echo e($lawsuit->process_number); ?></td>
 		      <td>
 		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->client]); ?>">

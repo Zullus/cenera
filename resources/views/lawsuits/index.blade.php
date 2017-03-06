@@ -53,7 +53,13 @@
 		      		{{$lawsuit->id}}
 		      	</a>
 		      </th>
-		      <td>{{$lawsuit->types['type']}}</td>
+		      <td>
+		      	@if(isset($lawsuit->types['type']))
+		      		{{$lawsuit->types['type']}}
+		      	@else
+					{{$lawsuit->type}}
+				@endif
+		      	</td>
 		      <td>{{$lawsuit->process_number}}</td>
 		      <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->client]) !!}">

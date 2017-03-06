@@ -137,12 +137,31 @@ class lawsuits extends Controller
 
         $busca = $input['search'];
 
-        $total = \App\Lawsuit::where('process_number', 'like', '%'.$busca.'%')->count();
+        $total = DB::table('vw_lawsuits')
+            ->select('id')
+            ->where("name", 'like', "%$busca%")
+            ->orWhere("lastname", 'like', "%$busca%")
+            ->orwhere("opponentname", 'like', "%$busca%")
+            ->orWhere("opponentlastname", 'like', "%$busca%")
+            ->orwhere("responsablename", 'like', "%$busca%")
+            ->orWhere("responsablelastname", 'like', "%$busca%")
+            ->orwhere("attorneyname", 'like', "%$busca%")
+            ->orWhere("attorneylastname", 'like', "%$busca%")
+            ->count();
 
         if($total > 0){
 
-            $saida = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
-                     ->where('process_number', 'like', '%'.$busca.'%')->get();
+            $saida = DB::table('vw_lawsuits')
+                ->select('id', 'process_number', 'process', 'offense', 'name', 'lastname', 'typename', 'courtname', 'opponentname', 'opponentlastname', 'responsablename', 'responsablelastname', 'attorneyname', 'attorneylastname')
+                ->where("name", 'like', "%$busca%")
+                ->orWhere("lastname", 'like', "%$busca%")
+                ->orwhere("opponentname", 'like', "%$busca%")
+                ->orWhere("opponentlastname", 'like', "%$busca%")
+                ->orwhere("responsablename", 'like', "%$busca%")
+                ->orWhere("responsablelastname", 'like', "%$busca%")
+                ->orwhere("attorneyname", 'like', "%$busca%")
+                ->orWhere("attorneylastname", 'like', "%$busca%")
+                ->get();
 
             if($total == 1){
 

@@ -18,7 +18,13 @@
 			</tr>
 			<tr>
 				<td>Tipo</td>
-				<td>{{$lawsuit->types['type']}}</td>
+				<td>
+					@if(isset($lawsuit->types['type']))
+			      		{{$lawsuit->types['type']}}
+			      	@else
+						{{$lawsuit->typename}}
+					@endif
+				</td>
 			</tr>
 			<tr>
 				<td>Número de proceso</td>
@@ -26,19 +32,55 @@
 			</tr>
 			<tr>
 				<td>Cliente</td>
-				<td>{{$lawsuit->clients['name']}}</td>
+				<td>
+					@if(isset($lawsuit->clients['name']))
+			      		{{$lawsuit->clients['name']}}
+			      	@else
+			      		@if($lawsuit->lastname != '')
+			      			{{$lawsuit->lastname}}, 
+			      		@endif
+
+						{{$lawsuit->name}}
+					@endif
+				</td>
 			</tr>
 			<tr>
 				<td>Adversario</td>
-				<td>{{$lawsuit->opponents['name']}}</td>
+				<td>
+					@if(isset($lawsuit->opponents['name']))
+			      		{{$lawsuit->opponents['name']}}
+			      	@else
+			      		@if($lawsuit->opponentlastname != '')
+			      			{{$lawsuit->opponentlastname}}, 
+			      		@endif
+
+						{{$lawsuit->opponentname}}
+					@endif
+				</td>
 			</tr>
 			<tr>
 				<td>Responsable</td>
-				<td>{{$lawsuit->responsables['name']}}</td>
+				<td>
+					@if(isset($lawsuit->responsables['name']))
+			      		{{$lawsuit->responsables['name']}}
+			      	@else
+			      		@if($lawsuit->responsablelastname != '')
+			      			{{$lawsuit->responsablelastname}}, 
+			      		@endif
+
+						{{$lawsuit->responsablename}}
+					@endif
+				</td>
 			</tr>
 			<tr>
 				<td>Corte</td>
-				<td>{{$lawsuit->courts['court']}}</td>
+				<td>
+					@if(isset($lawsuit->courts['name']))
+			      		{{$lawsuit->courts['name']}}
+			      	@else
+						{{$lawsuit->courtname}}
+					@endif
+				</td>
 			</tr>
 			<tr>
 				<td>Proceso</td>
@@ -50,7 +92,17 @@
 			</tr>
 			<tr>
 				<td>Abogado</td>
-				<td>{{$lawsuit->attorneys['name']}}</td>
+				<td>
+					@if(isset($lawsuit->attorneys['name']))
+			      		{{$lawsuit->attorneys['name']}}
+			      	@else
+			      		@if($lawsuit->attorneylastname != '')
+			      			{{$lawsuit->attorneylastname}}, 
+			      		@endif
+
+						{{$lawsuit->attorneyname}}
+					@endif
+				</td>
 			</tr>
 		</tbody>
 	</table>
