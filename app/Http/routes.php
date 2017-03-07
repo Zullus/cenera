@@ -68,6 +68,7 @@ Route::group(['prefix' => 'lawsuits'], function(){
 	Route::get('/', ['as' => 'lawsuits.index', 'uses' => 'Lawsuits@index']);
 	Route::get('new', ['as' => 'lawsuits.create', 'uses' => 'Lawsuits@create']);
 	Route::post('search', ['as' => 'lawsuits.search', 'uses' => 'Lawsuits@search']);
+	Route::get('search', ['as' => 'lawsuits.search', 'uses' => 'Lawsuits@search']);
 	Route::get('{id}', ['as' => 'lawsuits.show', 'uses' => 'Lawsuits@show']);
 	Route::post('store', ['as' => 'lawsuits.store', 'uses' => 'Lawsuits@store']);
 	Route::get('{id}/edit', ['as' => 'lawsuits.edit', 'uses' => 'Lawsuits@edit']);
