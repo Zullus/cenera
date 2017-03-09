@@ -92,8 +92,8 @@
 			<tr>
 				<td>Corte</td>
 				<td>
-					@if(isset($lawsuit->courts['name']))
-			      		{{$lawsuit->courts['name']}}
+					@if(isset($lawsuit->courts['court']))
+			      		{{$lawsuit->courts['court']}}
 			      	@else
 						{{$lawsuit->courtname}}
 					@endif
