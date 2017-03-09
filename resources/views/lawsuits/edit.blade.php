@@ -28,6 +28,12 @@
 				<td>{!! Form::select('types', $alltypes, $lawsuit->type, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
 			</tr>
 			<tr>
+				<td>Proceso</td>
+				<td>
+					{!! Form::text('process', $lawsuit->process, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
+				</td>
+			</tr>
+			<tr>
 				<td>Número de proceso</td>
 				<td>
 					{!! Form::text('process_number', $lawsuit->process_number, ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
@@ -52,27 +58,21 @@
 				</td>
 			</tr>
 			<tr>
+				<td>Procurador</td>
+				<td>
+					{!! Form::select('attorney', $allclients, $lawsuit->attorney, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
+				</td>
+			</tr>
+			<tr>
 				<td>Corte</td>
 				<td>
 					{!! Form::select('court', $allcourts, $lawsuit->court, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Proceso</td>
-				<td>
-					{!! Form::text('process', $lawsuit->process, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
-				</td>
-			</tr>
-			<tr>
 				<td>Ofensa</td>
 				<td>
 					{!! Form::textarea ('offense', $lawsuit->offense, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
-				</td>
-			</tr>
-			<tr>
-				<td>Abogado</td>
-				<td>
-					{!! Form::select('attorney', $allclients, $lawsuit->attorney, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
 				</td>
 			</tr>
 		</tbody>

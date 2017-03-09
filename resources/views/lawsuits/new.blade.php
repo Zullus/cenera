@@ -26,6 +26,12 @@
 				<td>{!! Form::select('types', $alltypes, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
 			</tr>
 			<tr>
+				<td>Proceso</td>
+				<td>
+					{!! Form::text('process', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
+				</td>
+			</tr>
+			<tr>
 				<td>Número de proceso</td>
 				<td>
 					{!! Form::text('process_number', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
@@ -50,15 +56,15 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Corte</td>
+				<td>Procurador</td>
 				<td>
-					{!! Form::select('court', $allcourts, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
+					{!! Form::select('attorney', $allclients, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
 				</td>
 			</tr>
 			<tr>
-				<td>Proceso</td>
+				<td>Corte</td>
 				<td>
-					{!! Form::text('process', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
+					{!! Form::select('court', $allcourts, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
 				</td>
 			</tr>
 			<tr>
@@ -67,12 +73,7 @@
 					{!! Form::textarea ('offense', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
 				</td>
 			</tr>
-			<tr>
-				<td>Abogado</td>
-				<td>
-					{!! Form::select('attorney', $allclients, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
-				</td>
-			</tr>
+
 		</tbody>
 	</table>
 

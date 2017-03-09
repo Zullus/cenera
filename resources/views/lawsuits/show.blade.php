@@ -27,6 +27,10 @@
 				</td>
 			</tr>
 			<tr>
+				<td>Proceso</td>
+				<td>{{$lawsuit->process}}</td>
+			</tr>
+			<tr>
 				<td>Número de proceso</td>
 				<td>{{$lawsuit->process_number}}</td>
 			</tr>
@@ -73,25 +77,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Corte</td>
-				<td>
-					@if(isset($lawsuit->courts['name']))
-			      		{{$lawsuit->courts['name']}}
-			      	@else
-						{{$lawsuit->courtname}}
-					@endif
-				</td>
-			</tr>
-			<tr>
-				<td>Proceso</td>
-				<td>{{$lawsuit->process}}</td>
-			</tr>
-			<tr>
-				<td>Ofensa</td>
-				<td>{{$lawsuit->offense}}</td>
-			</tr>
-			<tr>
-				<td>Abogado</td>
+				<td>Procurador</td>
 				<td>
 					@if(isset($lawsuit->attorneys['name']))
 			      		{{$lawsuit->attorneys['name']}}
@@ -103,6 +89,20 @@
 						{{$lawsuit->attorneyname}}
 					@endif
 				</td>
+			<tr>
+				<td>Corte</td>
+				<td>
+					@if(isset($lawsuit->courts['name']))
+			      		{{$lawsuit->courts['name']}}
+			      	@else
+						{{$lawsuit->courtname}}
+					@endif
+				</td>
+			</tr>
+			<tr>
+				<td>Ofensa</td>
+				<td>{{$lawsuit->offense}}</td>
+			</tr>
 			</tr>
 		</tbody>
 	</table>

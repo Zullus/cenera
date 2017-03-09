@@ -39,14 +39,12 @@
 	    <tr>
 	      <th>id</th>
 	      <th>Tipo</th>
+	      <th>Proceso</th>
 	      <th>Número de proceso</th>
 	      <th>Cliente</th>
-	      <th>Adversario</th>
-	      <th>Responsable</th>
+	      <th>Procurador</th>
 	      <th>Corte</th>
-	      <th>Proceso</th>
 	      <th>Ofensa</th>
-	      <th>Abogado</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -67,7 +65,8 @@
 					<?php echo e($lawsuit->typename); ?>
 
 				<?php endif; ?>
-		      	</td>
+		      </td>
+		      <td><?php echo e($lawsuit->process); ?></td>
 		      <td><?php echo e($lawsuit->process_number); ?></td>
 		      <td>
 		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->client]); ?>">
@@ -84,32 +83,17 @@
 					<?php endif; ?>
 		      	</a>
 		      </td>
-		      <td>
-		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->opponent]); ?>">
-		      		<?php if(isset($lawsuit->opponents['name'])): ?>
-			      		<?php echo e($lawsuit->opponents['name']); ?>
+			  <td>
+		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->attorney]); ?>">
+		      		<?php if(isset($lawsuit->attorneys['name'])): ?>
+			      		<?php echo e($lawsuit->attorneys['name']); ?>
 
 			      	<?php else: ?>
-			      		<?php if($lawsuit->opponentlastname != ''): ?>
-			      			<?php echo e($lawsuit->opponentlastname); ?>, 
+			      		<?php if($lawsuit->attorneylastname != ''): ?>
+			      			<?php echo e($lawsuit->attorneylastname); ?>, 
 			      		<?php endif; ?>
 
-						<?php echo e($lawsuit->opponentname); ?>
-
-					<?php endif; ?>
-		        </a>
-		  	  </td>
-		      <td>
-		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->responsable]); ?>">
-		      		<?php if(isset($lawsuit->responsables['name'])): ?>
-			      		<?php echo e($lawsuit->responsables['name']); ?>
-
-			      	<?php else: ?>
-			      		<?php if($lawsuit->responsablelastname != ''): ?>
-			      			<?php echo e($lawsuit->responsablelastname); ?>, 
-			      		<?php endif; ?>
-
-						<?php echo e($lawsuit->responsablename); ?>
+						<?php echo e($lawsuit->attorneyname); ?>
 
 					<?php endif; ?>
 		      	</a>
@@ -125,23 +109,7 @@
 					<?php endif; ?>
 		      	</a>
 		      </td>
-		      <td><?php echo e($lawsuit->process); ?></td>
 		      <td><?php echo e(substr($lawsuit->offense, 0, 50)); ?>...</td>
-		      <td>
-		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->attorney]); ?>">
-		      		<?php if(isset($lawsuit->attorneys['name'])): ?>
-			      		<?php echo e($lawsuit->attorneys['name']); ?>
-
-			      	<?php else: ?>
-			      		<?php if($lawsuit->attorneylastname != ''): ?>
-			      			<?php echo e($lawsuit->attorneylastname); ?>, 
-			      		<?php endif; ?>
-
-						<?php echo e($lawsuit->attorneyname); ?>
-
-					<?php endif; ?>
-		      	</a>
-		      </td>
 		    </tr>
 
 		<?php endforeach; ?>

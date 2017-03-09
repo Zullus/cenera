@@ -34,14 +34,12 @@
 	    <tr>
 	      <th>id</th>
 	      <th>Tipo</th>
+	      <th>Proceso</th>
 	      <th>Número de proceso</th>
 	      <th>Cliente</th>
-	      <th>Adversario</th>
-	      <th>Responsable</th>
+	      <th>Procurador</th>
 	      <th>Corte</th>
-	      <th>Proceso</th>
 	      <th>Ofensa</th>
-	      <th>Abogado</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -59,7 +57,8 @@
 		      	@else
 					{{$lawsuit->typename}}
 				@endif
-		      	</td>
+		      </td>
+		      <td>{{$lawsuit->process}}</td>
 		      <td>{{$lawsuit->process_number}}</td>
 		      <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->client]) !!}">
@@ -74,44 +73,7 @@
 					@endif
 		      	</a>
 		      </td>
-		      <td>
-		      	<a href="{!! route('clients.show', ['id' => $lawsuit->opponent]) !!}">
-		      		@if(isset($lawsuit->opponents['name']))
-			      		{{$lawsuit->opponents['name']}}
-			      	@else
-			      		@if($lawsuit->opponentlastname != '')
-			      			{{$lawsuit->opponentlastname}}, 
-			      		@endif
-
-						{{$lawsuit->opponentname}}
-					@endif
-		        </a>
-		  	  </td>
-		      <td>
-		      	<a href="{!! route('clients.show', ['id' => $lawsuit->responsable]) !!}">
-		      		@if(isset($lawsuit->responsables['name']))
-			      		{{$lawsuit->responsables['name']}}
-			      	@else
-			      		@if($lawsuit->responsablelastname != '')
-			      			{{$lawsuit->responsablelastname}}, 
-			      		@endif
-
-						{{$lawsuit->responsablename}}
-					@endif
-		      	</a>
-		      </td>
-		      <td>
-		      	<a href="{!! route('courts.show', ['id' => $lawsuit->court]) !!}">
-		      		@if(isset($lawsuit->courts['name']))
-			      		{{$lawsuit->courts['name']}}
-			      	@else
-						{{$lawsuit->courtname}}
-					@endif
-		      	</a>
-		      </td>
-		      <td>{{$lawsuit->process}}</td>
-		      <td>{{substr($lawsuit->offense, 0, 50)}}...</td>
-		      <td>
+			  <td>
 		      	<a href="{!! route('clients.show', ['id' => $lawsuit->attorney]) !!}">
 		      		@if(isset($lawsuit->attorneys['name']))
 			      		{{$lawsuit->attorneys['name']}}
@@ -124,6 +86,16 @@
 					@endif
 		      	</a>
 		      </td>
+		      <td>
+		      	<a href="{!! route('courts.show', ['id' => $lawsuit->court]) !!}">
+		      		@if(isset($lawsuit->courts['name']))
+			      		{{$lawsuit->courts['name']}}
+			      	@else
+						{{$lawsuit->courtname}}
+					@endif
+		      	</a>
+		      </td>
+		      <td>{{substr($lawsuit->offense, 0, 50)}}...</td>
 		    </tr>
 
 		@endforeach
