@@ -26,7 +26,7 @@
 				<td>{!! Form::select('types', $alltypes, null, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
 			</tr>
 			<tr>
-				<td>Proceso</td>
+				<td>N° Expediente</td>
 				<td>
 					{!! Form::text('process', null, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
 				</td>

@@ -28,7 +28,7 @@
 				<td>{!! Form::select('types', $alltypes, $lawsuit->type, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un tipo']) !!}</td>
 			</tr>
 			<tr>
-				<td>Proceso</td>
+				<td>N° Expediente</td>
 				<td>
 					{!! Form::text('process', $lawsuit->process, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
 				</td>

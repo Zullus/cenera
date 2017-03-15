@@ -27,7 +27,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Proceso</td>
+				<td>N° Expediente</td>
 				<td>{{$lawsuit->process}}</td>
 			</tr>
 			<tr>

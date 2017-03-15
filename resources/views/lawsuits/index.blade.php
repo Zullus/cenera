@@ -34,7 +34,7 @@
 	    <tr>
 	      <th>id</th>
 	      <th>Tipo</th>
-	      <th>Proceso</th>
+	      <th>N° Expediente</th>
 	      <th>Número de proceso</th>
 	      <th>Cliente</th>
 	      <th>Procurador</th>
