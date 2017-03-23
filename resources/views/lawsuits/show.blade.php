@@ -46,6 +46,18 @@
 
 						{{$lawsuit->name}}
 					@endif
+
+					@if(!is_null($more_clients))
+
+						<br>
+
+						@foreach($more_clients as $mcl)
+
+							{{$mcl}}<br>
+
+						@endforeach
+
+					@endif
 				</td>
 			</tr>
 			<tr>
@@ -59,6 +71,18 @@
 			      		@endif
 
 						{{$lawsuit->opponentname}}
+					@endif
+
+					@if(!is_null($more_opponents))
+
+						<br>
+
+						@foreach($more_opponents as $mo)
+
+							{{$mo}}<br>
+
+						@endforeach
+
 					@endif
 				</td>
 			</tr>
@@ -90,13 +114,26 @@
 					@endif
 				</td>
 			<tr>
-				<td>Corte</td>
+				<td>Corte(s)</td>
 				<td>
 					@if(isset($lawsuit->courts['court']))
 			      		{{$lawsuit->courts['court']}}
 			      	@else
 						{{$lawsuit->courtname}}
 					@endif
+
+					@if(!is_null($more_courts))
+
+						<br>
+
+						@foreach($more_courts as $mc)
+
+							{{$mc}}<br>
+
+						@endforeach
+
+					@endif
+
 				</td>
 			</tr>
 			<tr>

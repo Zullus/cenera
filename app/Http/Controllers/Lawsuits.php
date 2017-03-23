@@ -6,10 +6,24 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Http\Controllers\Courts as Courts;
+
+use App\Http\Controllers\ClientController as Clients;
+
 use Illuminate\Support\Facades\DB;
 
 class lawsuits extends Controller
 {
+
+    protected $Courts;
+    protected $Clients;
+
+    function __construct(Courts $Courts, Clients $Clients){
+
+        $this->Courts  = $Courts;
+        $this->Clients = $Clients;
+    }
+
     public function index(){
     	$lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->paginate(env('PAGINATION_ITEMS', 20));
 
@@ -21,9 +35,26 @@ class lawsuits extends Controller
 
     public function show($id){
 
+        $more_courts = NULL;
+
     	$lawsuit = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->find($id);
 
-    	return view('lawsuits.show')->with(compact('lawsuit'));
+        if(!is_null($lawsuit['more_courts'])){
+
+            $more_courts = $this->Courts->more_courts($lawsuit['more_courts']);
+        }
+
+        if(!is_null($lawsuit['more_clients'])){
+
+            $more_clients = $this->Clients->more_clients($lawsuit['more_clients']);
+        }
+
+        if(!is_null($lawsuit['more_opponents'])){
+
+            $more_opponents = $this->Clients->more_clients($lawsuit['more_opponents']);
+        }
+
+    	return view('lawsuits.show')->with(compact('lawsuit', 'more_courts', 'more_clients', 'more_opponents'));
     }
 
     public function edit($id){

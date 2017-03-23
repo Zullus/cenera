@@ -15,7 +15,7 @@ class Client extends Model
 
     public function lawsuits(){
 
-    	return $this->hasMany('App\Lawsuit');
+    	return $this->belongsTo('App\Lawsuit');
     }
 
     public function types(){

@@ -18,11 +18,18 @@ class ClientController extends Controller
 
     public function show($id){
 
-    	$client = \App\Client::with('types')->find($id);
+    	$client = $this->find($id);
 
         $sucesso = '';
 
     	return view('clients.show')->with(compact('client', 'sucesso'));
+    }
+
+    public function find($id){
+
+        $client = \App\Client::with('types')->find($id);
+
+        return $client;
     }
 
     public function edit($id){
@@ -111,5 +118,27 @@ class ClientController extends Controller
 
         return redirect()->route('clients.index')->with('success', 'Persona eliminada con éxito!');//O nome aqui é escolha
 
+    }
+
+    public function more_clients($arr){
+
+        if(!is_null($arr)){
+
+            $arr = explode(',', $arr);
+
+            $s = array();
+
+            foreach ($arr as &$value) {
+
+                $client = $this->find($value);
+
+                array_push($s, $client['name'] . ' ' . $client['lastname']);
+
+            }
+
+            return $s;
         }
+
+        return NULL;
+    }
 }
