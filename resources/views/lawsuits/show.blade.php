@@ -35,7 +35,7 @@
 				<td>{{$lawsuit->process_number}}</td>
 			</tr>
 			<tr>
-				<td>Cliente</td>
+				<td>Cliente(s)</td>
 				<td>
 					@if(isset($lawsuit->clients['name']))
 			      		{{$lawsuit->clients['name']}}
@@ -47,21 +47,25 @@
 						{{$lawsuit->name}}
 					@endif
 
-					@if(!is_null($more_clients))
+					@if(isset($more_clients))
 
-						<br>
+						@if(!is_null($more_clients))
 
-						@foreach($more_clients as $mcl)
+							<br>
 
-							{{$mcl}}<br>
+							@foreach($more_clients as $mcl)
 
-						@endforeach
+								{{$mcl}}<br>
+
+							@endforeach
+
+						@endif
 
 					@endif
 				</td>
 			</tr>
 			<tr>
-				<td>Adversario</td>
+				<td>Adversario(s)</td>
 				<td>
 					@if(isset($lawsuit->opponents['name']))
 			      		{{$lawsuit->opponents['name']}}
@@ -73,15 +77,19 @@
 						{{$lawsuit->opponentname}}
 					@endif
 
-					@if(!is_null($more_opponents))
+					@if(isset($more_opponents))
 
-						<br>
+						@if(!is_null($more_opponents))
 
-						@foreach($more_opponents as $mo)
+							<br>
 
-							{{$mo}}<br>
+							@foreach($more_opponents as $mo)
 
-						@endforeach
+								{{$mo}}<br>
+
+							@endforeach
+
+						@endif
 
 					@endif
 				</td>
@@ -122,15 +130,19 @@
 						{{$lawsuit->courtname}}
 					@endif
 
-					@if(!is_null($more_courts))
+					@if(isset($more_courts))
 
-						<br>
+						@if(!is_null($more_courts))
 
-						@foreach($more_courts as $mc)
+							<br>
 
-							{{$mc}}<br>
+							@foreach($more_courts as $mc)
 
-						@endforeach
+								{{$mc}}<br>
+
+							@endforeach
+
+						@endif
 
 					@endif
 

@@ -33,11 +33,18 @@ class lawsuits extends Controller
 
     }
 
+    public function find($id){
+
+        $lawsuit = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->find($id);
+
+        return $lawsuit;
+    }
+
     public function show($id){
 
         $more_courts = NULL;
 
-    	$lawsuit = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->find($id);
+    	$lawsuit = $this->find($id);
 
         if(!is_null($lawsuit['more_courts'])){
 
@@ -65,7 +72,7 @@ class lawsuits extends Controller
 
     	$allcourts = [];
 
-    	$lawsuit = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->find($id);
+    	$lawsuit = $this->find($id);
 
     	$types = \App\Type::all();
 
@@ -85,9 +92,24 @@ class lawsuits extends Controller
 			$allcourts[$value->id] = $value->court;
 		}
 
+        if(!is_null($lawsuit['more_courts'])){
+
+            $more_courts = $this->Courts->more_courts($lawsuit['more_courts']);
+        }
+
+        if(!is_null($lawsuit['more_clients'])){
+
+            $more_clients = $this->Clients->more_clients($lawsuit['more_clients']);
+        }
+
+        if(!is_null($lawsuit['more_opponents'])){
+
+            $more_opponents = $this->Clients->more_clients($lawsuit['more_opponents']);
+        }
+
 		$selectedLawsuit = $id;
 
-    	return view('lawsuits.edit')->with(compact('lawsuit', 'alltypes', 'selectedLawsuit', 'allclients', 'allcourts'));
+    	return view('lawsuits.edit')->with(compact('lawsuit', 'alltypes', 'selectedLawsuit', 'allclients', 'allcourts', 'more_courts', 'more_clients', 'more_opponents'));
     }
 
     public function update(Request $request){
@@ -246,7 +268,110 @@ class lawsuits extends Controller
 
         return redirect()->route('lawsuits.index')->with('success', 'Pleito eliminado con éxito!');//O nome aqui é escolha
 
+    }
+
+    public function remove_client ($id, $client, $param){
+
+        $lawsuit = $this->simplefind($id);
+
+        if($client == 0){
+
+            $lawsuit->$param = NULL;
+
+            $lawsuit->save();
+
+            if($param == 'client'){
+
+                return redirect()->back()->with('success', 'Client elimina!');
+
+            }
+
+            return redirect()->back()->with('success', 'Adversario elimina!');
+
         }
+
+        $more_clients = $lawsuit['more_' . $param . 's'];
+
+        $more_clients = explode(',', $more_clients);
+
+        $mc = '';
+
+        unset($more_clients[$client - 1]);
+
+        foreach ($more_clients as $c) {
+
+            $mc .= $c;
+
+            if($c != end($more_clients)){
+
+                $mc .= ',';
+
+            }
+        }
+
+        $s = 'more_' . $param . 's';
+
+        $lawsuit->$s = $mc;
+
+        $lawsuit->save();
+
+        if($param == 'client'){
+
+            return redirect()->back()->with('success', 'Client elimina!');
+
+        }
+
+        return redirect()->back()->with('success', 'Adversario elimina!');
+
+    }
+
+    public function remove_court ($id, $court){
+
+        $lawsuit = $this->simplefind($id);
+
+        if($court == 0){
+
+            $lawsuit->court = NULL;
+
+            $lawsuit->save();
+
+            return redirect()->back()->with('success', 'Corte elimina!');
+
+        }
+
+        $more_courts = $lawsuit['more_courts'];
+
+        $more_courts = explode(',', $more_courts);
+
+        $mc = '';
+
+        unset($more_courts[$court - 1]);
+
+        foreach ($more_courts as $c) {
+
+            $mc .= $c;
+
+            if($c != end($more_courts)){
+
+                $mc .= ',';
+
+            }
+        }
+
+        $lawsuit->more_courts = $mc;
+
+        $lawsuit->save();
+
+        return redirect()->back()->with('success', 'Corte elimina!');
+
+    }
+
+    public function simplefind($id){
+
+        $lawsuit = \App\Lawsuit::find($id);
+
+        return $lawsuit;
+    }
 
 
 }

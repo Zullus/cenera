@@ -74,6 +74,8 @@ Route::group(['prefix' => 'lawsuits'], function(){
 	Route::get('{id}/edit', ['as' => 'lawsuits.edit', 'uses' => 'Lawsuits@edit']);
 	Route::post('{id}/update', ['as' => 'lawsuits.update', 'uses' => 'Lawsuits@update']);
 	Route::get('{id}/delete', ['as' => 'lawsuits.destroy', 'uses' => 'Lawsuits@destroy']);
+	Route::get('{id}/{client}/{param}/client', ['as' => 'lawsuits.remove_client', 'uses' => 'Lawsuits@remove_client']);
+	Route::get('{id}/{court}/court', ['as' => 'lawsuits.remove_court', 'uses' => 'Lawsuits@remove_court']);
 
 });
 

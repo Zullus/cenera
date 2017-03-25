@@ -23,6 +23,15 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+        .remover{
+            color: #ff0000;
+            margin-left: 20px;
+        }
+
+        .remover i{
+            font-size: 20px;
+        }
     </style>
 </head>
 <body id="app-layout">
