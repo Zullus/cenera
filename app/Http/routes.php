@@ -76,6 +76,7 @@ Route::group(['prefix' => 'lawsuits'], function(){
 	Route::get('{id}/delete', ['as' => 'lawsuits.destroy', 'uses' => 'Lawsuits@destroy']);
 	Route::get('{id}/{client}/{param}/client', ['as' => 'lawsuits.remove_client', 'uses' => 'Lawsuits@remove_client']);
 	Route::get('{id}/{court}/court', ['as' => 'lawsuits.remove_court', 'uses' => 'Lawsuits@remove_court']);
+	Route::get('{id}/{process}/process', ['as' => 'lawsuits.remove_process', 'uses' => 'Lawsuits@remove_process']);
 
 });
 

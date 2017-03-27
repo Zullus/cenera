@@ -27,8 +27,23 @@
 				</td>
 			</tr>
 			<tr>
-				<td>N° Expediente</td>
-				<td>{{$lawsuit->process}}</td>
+				<td>N° Expediente(s)</td>
+				<td>
+					{{$lawsuit->process}}
+
+					@if(!is_null($more_process))
+
+						<br>
+
+						@foreach($more_process as $mp)
+
+							{{$mp}}<br>
+
+						@endforeach
+
+					@endif
+
+				</td>
 			</tr>
 			<tr>
 				<td>Número de proceso</td>

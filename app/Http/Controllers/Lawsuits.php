@@ -61,7 +61,9 @@ class lawsuits extends Controller
             $more_opponents = $this->Clients->more_clients($lawsuit['more_opponents']);
         }
 
-    	return view('lawsuits.show')->with(compact('lawsuit', 'more_courts', 'more_clients', 'more_opponents'));
+        $more_process = explode(',' , $lawsuit['more_process']);
+
+    	return view('lawsuits.show')->with(compact('lawsuit', 'more_courts', 'more_clients', 'more_opponents', 'more_process'));
     }
 
     public function edit($id){
@@ -107,25 +109,79 @@ class lawsuits extends Controller
             $more_opponents = $this->Clients->more_clients($lawsuit['more_opponents']);
         }
 
+        $more_process = explode(',' , $lawsuit['more_process']);
+
 		$selectedLawsuit = $id;
 
-    	return view('lawsuits.edit')->with(compact('lawsuit', 'alltypes', 'selectedLawsuit', 'allclients', 'allcourts', 'more_courts', 'more_clients', 'more_opponents'));
+    	return view('lawsuits.edit')->with(compact('lawsuit', 'alltypes', 'selectedLawsuit', 'allclients', 'allcourts', 'more_courts', 'more_clients', 'more_opponents', 'more_process'));
     }
 
     public function update(Request $request){
 
     	$input = $request->all();
 
-    	$lawsuit = \App\Lawsuit::find($input['id']);
+    	//$lawsuit = \App\Lawsuit::find($input['id']);
+        $lawsuit = $this->simplefind($input['id']);
 	    //$lawsuit->fill($input);
 
         $lawsuit->type           = $input['types'];
         $lawsuit->process_number = $input['process_number'];
-        $lawsuit->client         = $input['client'];
-        $lawsuit->opponent       = $input['opponent'];
+
+        //$lawsuit->client         = $input['client'];
+        if($input['client'] != '' && $input['client'] != NULL && $input['client'] > 3){
+
+            if(is_null($lawsuit->client)){
+                $lawsuit->client = $input['client'];
+            }
+            else{
+
+                $lawsuit->more_clients .= ',' . $input['client'];
+            }
+
+        }
+
+        //$lawsuit->opponent       = $input['opponent'];
+        if($input['opponent'] != '' && $input['opponent'] != NULL && $input['opponent'] > 3){
+
+            if(is_null($lawsuit->opponent)){
+                $lawsuit->opponent = $input['opponent'];
+            }
+            else{
+
+                $lawsuit->more_opponents .= ',' . $input['opponent'];
+            }
+
+        }
+
         $lawsuit->responsable    = $input['responsable'];
-        $lawsuit->court          = $input['court'];
-        $lawsuit->process        = $input['process'];
+
+        //$lawsuit->court          = $input['court'];
+        if($input['court'] != '' && $input['court'] != NULL && $input['court'] > 3){
+
+            if(is_null($lawsuit->court)){
+                $lawsuit->court = $input['court'];
+            }
+            else{
+
+                $lawsuit->more_courts .= ',' . $input['court'];
+            }
+
+        }
+
+        //$lawsuit->process        = $input['process'];
+
+        if($input['process'] != '' && $input['process'] != NULL){
+
+            if(is_null($lawsuit->process)){
+                $lawsuit->process = $input['process'];
+            }
+            else{
+
+                $lawsuit->more_process .= ',' . $input['process'];
+            }
+
+        }
+
         $lawsuit->offense        = $input['offense'];
         $lawsuit->attorney       = $input['attorney'];
 	    $lawsuit->save();
@@ -366,12 +422,51 @@ class lawsuits extends Controller
 
     }
 
+    public function remove_process($id, $process){
+
+        $lawsuit = $this->simplefind($id);
+
+        if($process == 0){
+
+            $lawsuit->process = NULL;
+
+            $lawsuit->save();
+
+            return redirect()->back()->with('success', 'Expediente elimino!');
+
+        }
+
+        $more_process = $lawsuit['more_process'];
+
+        $more_process = explode(',', $more_process);
+
+        $mp = '';
+
+        unset($more_process[$process - 1]);
+
+        foreach ($more_process as $c) {
+
+            $mp .= $c;
+
+            if($c != end($more_process)){
+
+                $mp .= ',';
+
+            }
+        }
+
+        $lawsuit->more_process = $mp;
+
+        $lawsuit->save();
+
+        return redirect()->back()->with('success', 'Expediente elimino!');
+
+    }
+
     public function simplefind($id){
 
         $lawsuit = \App\Lawsuit::find($id);
 
         return $lawsuit;
     }
-
-
 }

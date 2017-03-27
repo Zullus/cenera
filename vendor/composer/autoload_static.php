@@ -326,6 +326,8 @@ class ComposerStaticInit34e180e5a63b05e3cc0334cb2ab58620
         'AddTypeProcesseNumberPromotorToLawsuits' => __DIR__ . '/../..' . '/database/migrations/2016_11_28_211947_add_type-processe_number-promotor_to_lawsuits.php',
         'AlterOffenseChangeToLongtext' => __DIR__ . '/../..' . '/database/migrations/2016_11_30_173608_alter_offense_change_to_longtext.php',
         'AlterTableLawsuitsAddMoreCourtsAndCliens' => __DIR__ . '/../..' . '/database/migrations/2017_03_23_190637_AlterTableLawsuitsAddMoreCourtsAndCliens.php',
+        'AlterTableLawsuitsAddMoreProcess' => __DIR__ . '/../..' . '/database/migrations/2017_03_27_185137_AlterTableLawsuitsAddMoreProcess.php',
+        'AlterTableLawsuitsAddMoreProcessNumber' => __DIR__ . '/../..' . '/database/migrations/2017_03_27_183832_AlterTableLawsuitsAddMoreProcessNumber.php',
         'ChangeLawsuitsToAcceptNull' => __DIR__ . '/../..' . '/database/migrations/2016_12_09_212649_change_lawsuits_to_accept_null.php',
         'ChangePerosonsRemoveEmailUnique' => __DIR__ . '/../..' . '/database/migrations/2016_12_09_200836_change_perosons_remove_email_unique.php',
         'ChangePerosonsToAcceptNull' => __DIR__ . '/../..' . '/database/migrations/2016_12_09_164931_change_perosons_to_accept_null.php',

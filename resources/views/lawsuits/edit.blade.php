@@ -30,7 +30,22 @@
 			<tr>
 				<td>N° Expediente</td>
 				<td>
-					{!! Form::text('process', $lawsuit->process, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Proceso']) !!}
+
+					{{$lawsuit->process}} 
+					<a href="{!! route('lawsuits.remove_process', ['id' => $lawsuit->id, 'process' => 0]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a><br>
+
+					@if(!is_null($more_process))
+
+						@foreach($more_process as $kp => $mp)
+
+							{{$mp}} 
+							<a href="{!! route('lawsuits.remove_process', ['id' => $lawsuit->id, 'process' => $kp+1]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a><br>
+
+						@endforeach
+
+					@endif
+
+					{!! Form::text('process', NULL, ['class' => 'form-control select2', 'placeholder' => 'Escriba un nuevo expediente']) !!}
 				</td>
 			</tr>
 			<tr>
@@ -71,7 +86,7 @@
 
 					@endif
 
-					{!! Form::select('client', $allclients, $lawsuit->client, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Cliente']) !!}
+					{!! Form::select('client', $allclients, NULL, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un nuevo Cliente']) !!}
 				</td>
 			</tr>
 			<tr>
@@ -106,7 +121,7 @@
 
 					@endif
 
-					{!! Form::select('opponent', $allclients, $lawsuit->opponent, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Adversario']) !!}
+					{!! Form::select('opponent', $allclients, NULL, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un nuevo Adversario']) !!}
 				</td>
 			</tr>
 			<tr>
@@ -149,7 +164,7 @@
 
 					@endif
 
-					{!! Form::select('court', $allcourts, $lawsuit->court, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Corte']) !!}
+					{!! Form::select('court', $allcourts, NULL, ['class' => 'form-control select2', 'placeholder' => 'Seleccione una nueva corte']) !!}
 				</td>
 			</tr>
 			<tr>

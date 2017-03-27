@@ -15,6 +15,8 @@ return array(
     'AddTypeProcesseNumberPromotorToLawsuits' => $baseDir . '/database/migrations/2016_11_28_211947_add_type-processe_number-promotor_to_lawsuits.php',
     'AlterOffenseChangeToLongtext' => $baseDir . '/database/migrations/2016_11_30_173608_alter_offense_change_to_longtext.php',
     'AlterTableLawsuitsAddMoreCourtsAndCliens' => $baseDir . '/database/migrations/2017_03_23_190637_AlterTableLawsuitsAddMoreCourtsAndCliens.php',
+    'AlterTableLawsuitsAddMoreProcess' => $baseDir . '/database/migrations/2017_03_27_185137_AlterTableLawsuitsAddMoreProcess.php',
+    'AlterTableLawsuitsAddMoreProcessNumber' => $baseDir . '/database/migrations/2017_03_27_183832_AlterTableLawsuitsAddMoreProcessNumber.php',
     'ChangeLawsuitsToAcceptNull' => $baseDir . '/database/migrations/2016_12_09_212649_change_lawsuits_to_accept_null.php',
     'ChangePerosonsRemoveEmailUnique' => $baseDir . '/database/migrations/2016_12_09_200836_change_perosons_remove_email_unique.php',
     'ChangePerosonsToAcceptNull' => $baseDir . '/database/migrations/2016_12_09_164931_change_perosons_to_accept_null.php',
