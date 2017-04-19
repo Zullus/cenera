@@ -88,10 +88,10 @@
 		      </td>
 		      <td>
 		      	<a href="{!! route('courts.show', ['id' => $lawsuit->court]) !!}">
-		      		@if(isset($lawsuit->courts['name']))
-			      		{{$lawsuit->courts['name']}}
+		      		@if(isset($lawsuit->courts['court']))
+			      		{{$lawsuit->courts['court']}}
 			      	@else
-						{{$lawsuit->courtname}}
+						{{$lawsuit->court}}
 					@endif
 		      	</a>
 		      </td>

@@ -318,6 +318,7 @@ class ComposerStaticInit34e180e5a63b05e3cc0334cb2ab58620
 
     public static $classMap = array (
         'AddCourts' => __DIR__ . '/../..' . '/database/migrations/2016_11_28_193056_add_courts.php',
+        'AddImageToCars' => __DIR__ . '/../..' . '/database/migrations/2017_04_13_190914_AddImageToCars.php',
         'AddLawsuits' => __DIR__ . '/../..' . '/database/migrations/2016_11_28_210327_add_lawsuits.php',
         'AddOlderFildsToLawsuits' => __DIR__ . '/../..' . '/database/migrations/2016_12_09_211306_add_older_filds_to_lawsuits.php',
         'AddPersons' => __DIR__ . '/../..' . '/database/migrations/2016_11_28_190619_add_persons.php',

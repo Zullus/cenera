@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddCourts' => $baseDir . '/database/migrations/2016_11_28_193056_add_courts.php',
+    'AddImageToCars' => $baseDir . '/database/migrations/2017_04_13_190914_AddImageToCars.php',
     'AddLawsuits' => $baseDir . '/database/migrations/2016_11_28_210327_add_lawsuits.php',
     'AddOlderFildsToLawsuits' => $baseDir . '/database/migrations/2016_12_09_211306_add_older_filds_to_lawsuits.php',
     'AddPersons' => $baseDir . '/database/migrations/2016_11_28_190619_add_persons.php',

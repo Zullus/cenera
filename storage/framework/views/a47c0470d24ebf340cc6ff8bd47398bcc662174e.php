@@ -100,11 +100,11 @@
 		      </td>
 		      <td>
 		      	<a href="<?php echo route('courts.show', ['id' => $lawsuit->court]); ?>">
-		      		<?php if(isset($lawsuit->courts['name'])): ?>
-			      		<?php echo e($lawsuit->courts['name']); ?>
+		      		<?php if(isset($lawsuit->courts['court'])): ?>
+			      		<?php echo e($lawsuit->courts['court']); ?>
 
 			      	<?php else: ?>
-						<?php echo e($lawsuit->courtname); ?>
+						<?php echo e($lawsuit->court); ?>
 
 					<?php endif; ?>
 		      	</a>
