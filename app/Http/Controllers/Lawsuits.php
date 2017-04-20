@@ -284,7 +284,7 @@ class lawsuits extends Controller
         if($total > 0){
 
             $saida = DB::table('vw_lawsuits')
-                ->select('id', 'process_number', 'process', 'offense', 'name', 'lastname', 'typename', 'courtname', 'opponentname', 'opponentlastname', 'responsablename', 'responsablelastname', 'attorneyname', 'attorneylastname')
+                ->select('id')
                 ->where("name", 'like', "%$busca%")
                 ->orWhere("lastname", 'like', "%$busca%")
                 ->orwhere("opponentname", 'like', "%$busca%")
@@ -301,9 +301,28 @@ class lawsuits extends Controller
 
             if($total == 1){
 
-                $lawsuit = $saida[0];
+                $l = $saida[0];
 
-                return view('lawsuits.show')->with(compact('lawsuit'));
+                $lawsuit = \App\Lawsuit::find($l->id); //tenho que colocar os campos no 
+
+                if(!is_null($lawsuit['more_courts'])){
+
+                    $more_courts = $this->Courts->more_courts($lawsuit['more_courts']);
+                }
+
+                if(!is_null($lawsuit['more_clients'])){
+
+                    $more_clients = $this->Clients->more_clients($lawsuit['more_clients']);
+                }
+
+                if(!is_null($lawsuit['more_opponents'])){
+
+                    $more_opponents = $this->Clients->more_clients($lawsuit['more_opponents']);
+                }
+
+                $more_process = explode(',' , $lawsuit['more_process']);
+
+                return view('lawsuits.show')->with(compact('lawsuit', 'more_courts', 'more_clients', 'more_opponents', 'more_process'));
 
             }
 
