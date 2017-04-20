@@ -206,7 +206,26 @@ class lawsuits extends Controller
         $lawsuit->attorney       = $input['attorney'];
 	    $lawsuit->save();
 
-    	return view('lawsuits.show')->with(compact('lawsuit'));
+        $more_courts = NULL;
+
+        if(!is_null($lawsuit['more_courts'])){
+
+            $more_courts = $this->Courts->more_courts($lawsuit['more_courts']);
+        }
+
+        if(!is_null($lawsuit['more_clients'])){
+
+            $more_clients = $this->Clients->more_clients($lawsuit['more_clients']);
+        }
+
+        if(!is_null($lawsuit['more_opponents'])){
+
+            $more_opponents = $this->Clients->more_clients($lawsuit['more_opponents']);
+        }
+
+        $more_process = explode(',' , $lawsuit['more_process']);
+
+    	return view('lawsuits.show')->with(compact('lawsuit', 'more_courts', 'more_clients', 'more_opponents', 'more_process'));
     }
 
     public function create(){
