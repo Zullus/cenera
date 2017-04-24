@@ -104,7 +104,7 @@
 			      		<?php echo e($lawsuit->courts['court']); ?>
 
 			      	<?php else: ?>
-						<?php echo e($lawsuit->court); ?>
+						<?php echo e($lawsuit->courtname); ?>
 
 					<?php endif; ?>
 		      	</a>

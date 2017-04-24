@@ -91,7 +91,7 @@
 		      		@if(isset($lawsuit->courts['court']))
 			      		{{$lawsuit->courts['court']}}
 			      	@else
-						{{$lawsuit->court}}
+						{{$lawsuit->courtname}}
 					@endif
 		      	</a>
 		      </td>
