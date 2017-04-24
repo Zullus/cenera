@@ -101,7 +101,7 @@
 			      		@endif
 
 						{{$lawsuit->opponentname}} 
-						<a href="{!! route('lawsuits.remove_client', ['id' => $lawsuit->id, 'client' => $ko+1, 'param' => 'opponent']) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a>
+						<a href="{!! route('lawsuits.remove_client', ['id' => $lawsuit->id, 'client' => 0, 'param' => 'opponent']) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a>
 					@endif
 
 					@if(isset($more_opponents))
