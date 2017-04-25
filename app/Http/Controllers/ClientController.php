@@ -88,7 +88,7 @@ class ClientController extends Controller
         $client->document = $input['document'];
 	    $client->save();
 
-        $sucesso = 'Persona ahorrar con éxito';
+        $sucesso = 'Persona añadida exitosamente';
 
     	return view('clients.show')->with(compact('client', 'sucesso'));
     }
@@ -116,7 +116,7 @@ class ClientController extends Controller
             return redirect()->back()->withInput()->withErrors(['Falha ao apagar a persona']);
         }
 
-        return redirect()->route('clients.index')->with('success', 'Persona eliminada con éxito!');//O nome aqui é escolha
+        return redirect()->route('clients.index')->with('success', '<strong>Hecho!</strong>Persona eliminada con éxito!');//O nome aqui é escolha
 
     }
 
