@@ -8,11 +8,34 @@ use App\Http\Requests;
 
 class ClientController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-		$clients = \App\Client::with('types')->paginate(env('PAGINATION_ITEMS', 20));
+        $url = ['page' => '', 'ordenacao' => ''];
 
-		return view('clients.index')->with(compact('clients'));
+        if(isset($request['order'])){
+
+            $order = $request['order'];
+
+            $url['ordenacao'] = '?order=name';
+
+            $page = $request['page'];
+
+            if($page != null){
+
+                $url['ordenacao'] .='&page=' . $page;
+
+                $url['page'] = '?page=' . $page;
+
+            }
+
+            $clients = \App\Client::with('types')->orderBy('name')->paginate(env('PAGINATION_ITEMS', 20));
+        }
+        else{
+
+            $clients = \App\Client::with('types')->paginate(env('PAGINATION_ITEMS', 20));
+        }
+
+		return view('clients.index')->with(compact('clients', 'url'));
 
     }
 
