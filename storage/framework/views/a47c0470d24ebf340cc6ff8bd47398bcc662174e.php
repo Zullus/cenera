@@ -34,6 +34,14 @@
 		</div>
 	</div>
 
+	<div class="row text-left">
+		<div class="col-md-12">
+
+			<a href="<?php echo e($url['ordenacao']); ?>">Orden por expediente</a> - <a href="<?php echo e($url['page']); ?>">Orden de inclusión</a>
+
+		</div>
+	</div>
+
 	<table class="table">
 	  <thead>
 	    <tr>

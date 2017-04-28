@@ -10,15 +10,23 @@ class ClientController extends Controller
 {
     public function index(Request $request){
 
-        $url = ['page' => '', 'ordenacao' => ''];
+        $url = ['page' => '', 'ordenacao' => '?order=name'];
 
-        if(isset($request['order'])){
+        $input = $request->all();
 
-            $order = $request['order'];
+        $page = 1;
+
+        if(isset($input['order'])){
+
+            $order = $input['order'];
 
             $url['ordenacao'] = '?order=name';
 
-            $page = $request['page'];
+            if(isset($input['page'])){
+
+                $page = $input['page'];
+
+            }
 
             if($page != null){
 

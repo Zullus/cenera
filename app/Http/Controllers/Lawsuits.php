@@ -24,12 +24,52 @@ class lawsuits extends Controller
         $this->Clients = $Clients;
     }
 
-    public function index(){
-    	$lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])->paginate(env('PAGINATION_ITEMS', 20));
+    public function index(Request $request){
+
+        $url = ['page' => '', 'ordenacao' => '?order=process'];
+
+        $input = $request->all();
+
+        $page = 1;
+
+        if(isset($input['order'])){
+
+            $order = $input['order'];
+
+            $url['ordenacao'] = '?order=process';
+
+            if(isset($input['page'])){
+
+                $page = $input['page'];
+
+            }
+
+            if($page != null){
+
+                $url['ordenacao'] .='&page=' . $page;
+
+                $url['page'] = '?page=' . $page;
+
+            }
+
+
+            $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
+                        ->orderBy('process')
+                        ->paginate(env('PAGINATION_ITEMS', 20));
+
+        }
+
+        else{
+
+            $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
+              ->paginate(env('PAGINATION_ITEMS', 20));
+
+        }
+
 
         $busca = '';
 
-		return view('lawsuits.index')->with(compact('lawsuits', 'busca'));
+		return view('lawsuits.index')->with(compact('lawsuits', 'busca', 'url'));
 
     }
 
