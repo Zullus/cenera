@@ -32,7 +32,7 @@
 	<div class="row text-left">
 		<div class="col-md-12">
 
-			<a href="{{$url['ordenacao']}}">Orden por expediente</a> - <a href="{{$url['page']}}">Orden de inclusión</a>
+			<a href="{{$url['page']}}">Orden por expediente</a> - <a href="{{$url['ordenacao']}}">Orden de inclusión</a>
 
 		</div>
 	</div>

@@ -19,7 +19,7 @@
 	<div class="row text-left">
 		<div class="col-md-12">
 
-			<a href="{{$url['ordenacao']}}">Orden alfabetica</a> - <a href="{{$url['page']}}">Orden de inclusión</a>
+			<a href="{{$url['page']}}">Orden alfabetica</a> - <a href="{{$url['ordenacao']}}">Orden de inclusión</a>
 
 		</div>
 	</div>
@@ -48,7 +48,16 @@
 		      	</a>
 		      </th>
 		      <td>{{$client->types['type']}}</td>
-		      <td>{{$client->lastname}}, {{$client->name}}</td>
+		      <td>
+		      	@if($client->lastname != '')
+
+		      		{{$client->lastname}}, 
+
+		      	@endif
+
+		      	{{$client->name}}
+
+		      </td>
 		      <td>{{$client->contac}}</td>
 		      <td>{{$client->adrress}}</td>
 		      <td>{{$client->phone}}</td>

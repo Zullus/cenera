@@ -37,7 +37,7 @@
 	<div class="row text-left">
 		<div class="col-md-12">
 
-			<a href="<?php echo e($url['ordenacao']); ?>">Orden por expediente</a> - <a href="<?php echo e($url['page']); ?>">Orden de inclusión</a>
+			<a href="<?php echo e($url['page']); ?>">Orden por expediente</a> - <a href="<?php echo e($url['ordenacao']); ?>">Orden de inclusión</a>
 
 		</div>
 	</div>

@@ -10,7 +10,7 @@ class ClientController extends Controller
 {
     public function index(Request $request){
 
-        $url = ['page' => '', 'ordenacao' => '?order=name'];
+        $url = ['page' => '', 'ordenacao' => '?order=inclusion'];
 
         $input = $request->all();
 
@@ -20,7 +20,7 @@ class ClientController extends Controller
 
             $order = $input['order'];
 
-            $url['ordenacao'] = '?order=name';
+            $url['ordenacao'] = '?order=inclusion';
 
             if(isset($input['page'])){
 
@@ -36,11 +36,14 @@ class ClientController extends Controller
 
             }
 
-            $clients = \App\Client::with('types')->orderBy('name')->paginate(env('PAGINATION_ITEMS', 20));
+            $clients = \App\Client::with('types')
+                ->paginate(env('PAGINATION_ITEMS', 20));
         }
         else{
 
-            $clients = \App\Client::with('types')->paginate(env('PAGINATION_ITEMS', 20));
+            $clients = \App\Client::with('types')
+                ->orderBy('name')
+            ->paginate(env('PAGINATION_ITEMS', 20));
         }
 
 		return view('clients.index')->with(compact('clients', 'url'));

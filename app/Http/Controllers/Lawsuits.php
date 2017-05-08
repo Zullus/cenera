@@ -26,7 +26,7 @@ class lawsuits extends Controller
 
     public function index(Request $request){
 
-        $url = ['page' => '', 'ordenacao' => '?order=process'];
+        $url = ['page' => '', 'ordenacao' => '?order=inclusion'];
 
         $input = $request->all();
 
@@ -36,7 +36,7 @@ class lawsuits extends Controller
 
             $order = $input['order'];
 
-            $url['ordenacao'] = '?order=process';
+            $url['ordenacao'] = '?order=inclusion';
 
             if(isset($input['page'])){
 
@@ -54,7 +54,6 @@ class lawsuits extends Controller
 
 
             $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
-                        ->orderBy('process')
                         ->paginate(env('PAGINATION_ITEMS', 20));
 
         }
@@ -62,7 +61,8 @@ class lawsuits extends Controller
         else{
 
             $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
-              ->paginate(env('PAGINATION_ITEMS', 20));
+                ->orderBy('process')
+                ->paginate(env('PAGINATION_ITEMS', 20));
 
         }
 
