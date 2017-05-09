@@ -301,6 +301,8 @@ class lawsuits extends Controller
 
     public function search(Request $request){
 
+        $url = ['page' => '', 'ordenacao' => '?order=inclusion'];
+
         $input = $request->all();
 
         $busca = $input['search'];
@@ -382,7 +384,7 @@ class lawsuits extends Controller
                 ->orWhere("process_number", 'like', "%$busca%")
                 ->paginate(env('PAGINATION_ITEMS', 20));
 
-            return view('lawsuits.index')->with(compact('lawsuits', 'busca'));
+            return view('lawsuits.index')->with(compact('lawsuits', 'busca', 'url'));
 
         }
 
