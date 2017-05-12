@@ -51,4 +51,31 @@ class courts extends Controller
 
 		return NULL;
     }
+
+    public function store(Request $request){
+
+        $input = $request->all();
+
+        $court = new \App\Court;
+        //$court->fill($request);
+        $court->court = $input['court'];
+        $court->save();
+
+        $sucesso = 'Persona añadida exitosamente';
+
+        return view('courts.show')->with(compact('court', 'sucesso'));
+    }
+
+    public function create(){
+
+        $court = [];
+
+        $types = \App\Type::all();
+
+        foreach ($types as $value) {
+            $alltypes[$value->id] = $value->type;
+        }
+
+        return view('courts.new')->with(compact('court', 'alltypes'));
+    }
 }

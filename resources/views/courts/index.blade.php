@@ -6,7 +6,7 @@
 	  <thead>
 	    <tr>
 	      <th>id</th>
-	      <th>Court</th>
+	      <th>Corte</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -23,7 +23,12 @@
 	  </tbody>
 	</table>
 
-
 	{!!$courts->appends(Request::except('page'))->render()!!}
+
+	<br>
+
+	<a href="{!! route('courts.create') !!}">
+		<button class="btn btn-primary">Añadir nueva Corte</button>
+	</a>
 
 @endsection

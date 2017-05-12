@@ -52,6 +52,7 @@ Route::group(['prefix' => 'types'], function(){
 Route::group(['prefix' => 'courts'], function(){
 
 	Route::get('/', ['as' => 'courts.index', 'uses' => 'Courts@index']);
+	Route::get('new', ['as' => 'courts.create', 'uses' => 'Courts@create']);
 	Route::get('{id}', ['as' => 'courts.show', 'uses' => 'Courts@show']);
 	Route::post('store', ['as' => 'courts.store', 'uses' => 'Courts@store']);
 	Route::get('{id}/edit', ['as' => 'courts.edit', 'uses' => 'Courts@edit']);
