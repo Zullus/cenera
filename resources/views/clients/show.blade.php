@@ -71,9 +71,22 @@
 	  	<button type="button" class="btn btn-primary">Editar</button>
 	  </a>
 
-	  <a href="{!! route('clients.destroy', ['id' => $client->id]) !!}">
+	  <a href="javascript:deleteConfirm()">
 	  	<button type="button" class="btn btn-danger">Apagar</button>
 	  </a>
 	</div>
+
+<script>
+	function deleteConfirm(){
+
+		var r = confirm("¿Estas seguro de que lo quieres borrar?");
+
+		if (r == true) {
+		    window.location = "{!! route('clients.destroy', ['id' => $client->id]) !!}";
+		}
+
+	}
+</script>
+
 
 @endsection
