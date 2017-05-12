@@ -305,6 +305,16 @@ class lawsuits extends Controller
 
         $input = $request->all();
 
+        if($input == []){
+
+            $busca = '';
+
+             $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
+                        ->paginate(env('PAGINATION_ITEMS', 20));
+
+            return view('lawsuits.index')->with('error', 'La búsqueda tiene un error. Por favor, vuelva a intentar')->with(compact('lawsuits', 'busca', 'url'));
+        }
+
         $busca = $input['search'];
 
         $total = DB::table('vw_lawsuits')
