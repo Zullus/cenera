@@ -27,29 +27,6 @@
 				</td>
 			</tr>
 			<tr>
-				<td>N° Expediente(s)</td>
-				<td>
-					{{$lawsuit->process}}
-
-					@if(!is_null($more_process))
-
-						<br>
-
-						@foreach($more_process as $mp)
-
-							{{$mp}}<br>
-
-						@endforeach
-
-					@endif
-
-				</td>
-			</tr>
-			<tr>
-				<td>Número de proceso</td>
-				<td>{{$lawsuit->process_number}}</td>
-			</tr>
-			<tr>
 				<td>Cliente(s)</td>
 				<td>
 					@if(isset($lawsuit->clients['name']))
@@ -78,6 +55,74 @@
 
 					@endif
 				</td>
+			</tr>
+			<tr>
+				<td>N° Expediente(s)</td>
+				<td>
+					{{$lawsuit->process}}
+
+					@if(!is_null($more_process))
+
+						<br>
+
+						@foreach($more_process as $mp)
+
+							{{$mp}}<br>
+
+						@endforeach
+
+					@endif
+
+				</td>
+			</tr>
+			<tr>
+				<td>Número de proceso</td>
+				<td>{{$lawsuit->process_number}}</td>
+			</tr>
+			<tr>
+				<td>Corte(s)</td>
+				<td>
+					@if(isset($lawsuit->courts['court']))
+			      		{{$lawsuit->courts['court']}}
+			      	@else
+						{{$lawsuit->courtname}}
+					@endif
+
+					@if(isset($more_courts))
+
+						@if(!is_null($more_courts))
+
+							<br>
+
+							@foreach($more_courts as $mc)
+
+								{{$mc}}<br>
+
+							@endforeach
+
+						@endif
+
+					@endif
+
+				</td>
+			</tr>
+			<tr>
+				<td>Procurador</td>
+				<td>
+					@if(isset($lawsuit->attorneys['name']))
+			      		{{$lawsuit->attorneys['name']}}
+			      	@else
+			      		@if($lawsuit->attorneylastname != '')
+			      			{{$lawsuit->attorneylastname}}, 
+			      		@endif
+
+						{{$lawsuit->attorneyname}}
+					@endif
+				</td>
+			</tr>
+			<tr>
+				<td>Ofensa</td>
+				<td>{{$lawsuit->offense}}</td>
 			</tr>
 			<tr>
 				<td>Adversario(s)</td>
@@ -122,51 +167,6 @@
 						{{$lawsuit->responsablename}}
 					@endif
 				</td>
-			</tr>
-			<tr>
-				<td>Procurador</td>
-				<td>
-					@if(isset($lawsuit->attorneys['name']))
-			      		{{$lawsuit->attorneys['name']}}
-			      	@else
-			      		@if($lawsuit->attorneylastname != '')
-			      			{{$lawsuit->attorneylastname}}, 
-			      		@endif
-
-						{{$lawsuit->attorneyname}}
-					@endif
-				</td>
-			<tr>
-				<td>Corte(s)</td>
-				<td>
-					@if(isset($lawsuit->courts['court']))
-			      		{{$lawsuit->courts['court']}}
-			      	@else
-						{{$lawsuit->courtname}}
-					@endif
-
-					@if(isset($more_courts))
-
-						@if(!is_null($more_courts))
-
-							<br>
-
-							@foreach($more_courts as $mc)
-
-								{{$mc}}<br>
-
-							@endforeach
-
-						@endif
-
-					@endif
-
-				</td>
-			</tr>
-			<tr>
-				<td>Ofensa</td>
-				<td>{{$lawsuit->offense}}</td>
-			</tr>
 			</tr>
 		</tbody>
 	</table>

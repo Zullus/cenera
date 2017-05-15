@@ -48,11 +48,12 @@
 	      <th>id</th>
 	      <th>Tipo</th>
 	      <th>N° Expediente</th>
+<th>Cliente</th>
 	      <th>Número de proceso</th>
-	      <th>Cliente</th>
+<th>Corte</th>
 	      <th>Procurador</th>
-	      <th>Corte</th>
 	      <th>Ofensa</th>
+<th>Adversario</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -75,7 +76,6 @@
 				<?php endif; ?>
 		      </td>
 		      <td><?php echo e($lawsuit->process); ?></td>
-		      <td><?php echo e($lawsuit->process_number); ?></td>
 		      <td>
 		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->client]); ?>">
 		      		<?php if(isset($lawsuit->clients['name'])): ?>
@@ -87,6 +87,18 @@
 			      		<?php endif; ?>
 
 						<?php echo e($lawsuit->name); ?>
+
+					<?php endif; ?>
+		      	</a>
+		      </td>
+		      <td><?php echo e($lawsuit->process_number); ?></td>
+		      <td>
+		      	<a href="<?php echo route('courts.show', ['id' => $lawsuit->court]); ?>">
+		      		<?php if(isset($lawsuit->courts['court'])): ?>
+			      		<?php echo e($lawsuit->courts['court']); ?>
+
+			      	<?php else: ?>
+						<?php echo e($lawsuit->courtname); ?>
 
 					<?php endif; ?>
 		      	</a>
@@ -106,18 +118,22 @@
 					<?php endif; ?>
 		      	</a>
 		      </td>
+		      <td><?php echo e(substr($lawsuit->offense, 0, 50)); ?>...</td>
 		      <td>
-		      	<a href="<?php echo route('courts.show', ['id' => $lawsuit->court]); ?>">
-		      		<?php if(isset($lawsuit->courts['court'])): ?>
-			      		<?php echo e($lawsuit->courts['court']); ?>
+		      	<a href="<?php echo route('clients.show', ['id' => $lawsuit->opponent]); ?>">
+		      		<?php if(isset($lawsuit->opponents['name'])): ?>
+			      		<?php echo e($lawsuit->opponents['name']); ?>
 
 			      	<?php else: ?>
-						<?php echo e($lawsuit->courtname); ?>
+			      		<?php if($lawsuit->opponentlastname != ''): ?>
+			      			<?php echo e($lawsuit->opponentlastname); ?>, 
+			      		<?php endif; ?>
+
+						<?php echo e($lawsuit->opponentname); ?>
 
 					<?php endif; ?>
 		      	</a>
 		      </td>
-		      <td><?php echo e(substr($lawsuit->offense, 0, 50)); ?>...</td>
 		    </tr>
 
 		<?php endforeach; ?>

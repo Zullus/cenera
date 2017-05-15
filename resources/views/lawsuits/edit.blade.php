@@ -49,12 +49,6 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Número de proceso</td>
-				<td>
-					{!! Form::text('process_number', $lawsuit->process_number, ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
-				</td>
-			</tr>
-			<tr>
 				<td>Cliente(s)</td>
 				<td>
 					@if(isset($lawsuit->clients['name']))
@@ -87,6 +81,55 @@
 					@endif
 
 					{!! Form::select('client', $allclients, NULL, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un nuevo Cliente']) !!}
+				</td>
+			</tr>
+			<tr>
+				<td>Número de proceso</td>
+				<td>
+					{!! Form::text('process_number', $lawsuit->process_number, ['class' => 'form-control select2', 'placeholder' => 'Escriba un número de proceso']) !!}
+				</td>
+			</tr>
+			<tr>
+				<td>Corte(s)</td>
+				<td>
+					@if(isset($lawsuit->courts['court']))
+			      		{{$lawsuit->courts['court']}} 
+			      		<a href="{!! route('lawsuits.remove_court', ['id' => $lawsuit->id, 'client' => 0]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a>
+			      	@else
+						{{$lawsuit->courtname}} 
+						<a href="{!! route('lawsuits.remove_court', ['id' => $lawsuit->id, 'client' => 0]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a>
+					@endif
+
+					@if(isset($more_courts))
+
+						@if(!is_null($more_courts))
+
+							<br>
+
+							@foreach($more_courts as $co => $mc)
+
+								{{$mc}} 
+								<a href="{!! route('lawsuits.remove_court', ['id' => $lawsuit->id, 'client' => $co+1]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a><br>
+
+							@endforeach
+
+						@endif
+
+					@endif
+
+					{!! Form::select('court', $allcourts, NULL, ['class' => 'form-control select2', 'placeholder' => 'Seleccione una nueva corte']) !!}
+				</td>
+			</tr>
+			<tr>
+				<td>Procurador</td>
+				<td>
+					{!! Form::select('attorney', $allclients, $lawsuit->attorney, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
+				</td>
+			</tr>
+			<tr>
+				<td>Ofensa</td>
+				<td>
+					{!! Form::textarea ('offense', $lawsuit->offense, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
 				</td>
 			</tr>
 			<tr>
@@ -128,49 +171,6 @@
 				<td>Responsable</td>
 				<td>
 					{!! Form::select('responsable', $allclients, $lawsuit->responsable, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Responsable']) !!}
-				</td>
-			</tr>
-			<tr>
-				<td>Procurador</td>
-				<td>
-					{!! Form::select('attorney', $allclients, $lawsuit->attorney, ['class' => 'form-control select2', 'placeholder' => 'Seleccione un Abogado']) !!}
-				</td>
-			</tr>
-			<tr>
-				<td>Corte(s)</td>
-				<td>
-					@if(isset($lawsuit->courts['court']))
-			      		{{$lawsuit->courts['court']}} 
-			      		<a href="{!! route('lawsuits.remove_court', ['id' => $lawsuit->id, 'client' => 0]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a>
-			      	@else
-						{{$lawsuit->courtname}} 
-						<a href="{!! route('lawsuits.remove_court', ['id' => $lawsuit->id, 'client' => 0]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a>
-					@endif
-
-					@if(isset($more_courts))
-
-						@if(!is_null($more_courts))
-
-							<br>
-
-							@foreach($more_courts as $co => $mc)
-
-								{{$mc}} 
-								<a href="{!! route('lawsuits.remove_court', ['id' => $lawsuit->id, 'client' => $co+1]) !!}" class="remover"><i class="fa fa-close" aria-hidden="true"></i>eliminar</a><br>
-
-							@endforeach
-
-						@endif
-
-					@endif
-
-					{!! Form::select('court', $allcourts, NULL, ['class' => 'form-control select2', 'placeholder' => 'Seleccione una nueva corte']) !!}
-				</td>
-			</tr>
-			<tr>
-				<td>Ofensa</td>
-				<td>
-					{!! Form::textarea ('offense', $lawsuit->offense, ['class' => 'form-control select2', 'placeholder' => 'Escriba un Ofensa']) !!}
 				</td>
 			</tr>
 		</tbody>
