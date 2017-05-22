@@ -54,7 +54,7 @@ class lawsuits extends Controller
 
 
             $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
-                        ->orderBy('created_at', 'desc')
+                        ->orderBy('id', 'desc')
                         ->paginate(env('PAGINATION_ITEMS', 20));
 
         }
@@ -62,8 +62,8 @@ class lawsuits extends Controller
         else{
 
             $lawsuits = \App\Lawsuit::with(['clients', 'opponents', 'responsables', 'types', 'courts', 'attorneys'])
-                ->orderBy('created_at', 'desc')
-                ->orderBy('process')
+               // ->orderBy('id', 'desc')
+                ->orderBy('process', 'asc')
                 ->paginate(env('PAGINATION_ITEMS', 20));
 
         }

@@ -48,12 +48,12 @@
 	      <th>id</th>
 	      <th>Tipo</th>
 	      <th>N° Expediente</th>
-<th>Cliente</th>
+		  <th>Cliente</th>
 	      <th>Número de proceso</th>
-<th>Corte</th>
+		  <th>Corte</th>
 	      <th>Procurador</th>
 	      <th>Ofensa</th>
-<th>Adversario</th>
+		  <th>Adversario</th>
 	    </tr>
 	  </thead>
 	  <tbody>
