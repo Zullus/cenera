@@ -234,6 +234,31 @@ class lawsuits extends Controller
 
     	$input = $request->all();
 
+        //Verificando se estão em brnaco
+        if($input['client'] == ''){
+            $input['client'] = 1;
+        }
+
+        if($input['court'] == ''){
+            $input['court'] = 1;
+        }
+
+        if($input['opponent'] == ''){
+            $input['opponent'] = 1;
+        }
+
+        if($input['attorney'] == ''){
+            $input['attorney'] = 1;
+        }
+
+        if($input['process'] == ''){
+            $input['process'] = 0;
+        }
+
+        if($input['responsable'] == ''){
+            $input['responsable'] = 0;
+        }
+
     	$lawsuit = new \App\Lawsuit;
 	    //$lawsuit->fill($request);
         $lawsuit->type           = $input['types'];
