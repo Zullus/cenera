@@ -29,6 +29,10 @@
             margin-left: 20px;
         }
 
+        .btn-danger{
+            margin-left: 60px !important;
+        }
+
         .remover i{
             font-size: 20px;
         }
@@ -56,7 +60,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="<?php echo e(url('/home')); ?>">Home</a></li>
+                    <!--<li><a href="<?php echo e(url('/home')); ?>">Home</a></li>-->
                     <li><a href="<?php echo e(route('lawsuits.index')); ?>">Pleitos</a></li>
                     <li><a href="<?php echo e(route('clients.index')); ?>">Personas</a></li>
                     <li><a href="<?php echo e(route('courts.index')); ?>">Tribunales</a></li>

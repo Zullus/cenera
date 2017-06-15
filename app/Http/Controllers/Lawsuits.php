@@ -304,19 +304,19 @@ class lawsuits extends Controller
 
         $allcourts = [];
 
-        $types = \App\Type::all();
+        $types = \App\Type::orderBy('type')->get();
 
         foreach ($types as $value) {
             $alltypes[$value->id] = $value->type;
         }
 
-        $clients = \App\Client::all();
+        $clients = \App\Client::orderBy('name')->get();
 
         foreach ($clients as $value) {
             $allclients[$value->id] = $value->name;
         }
 
-        $courts = \App\Court::all();
+        $courts = \App\Court::orderBy('court')->get();
 
         foreach ($courts as $value) {
             $allcourts[$value->id] = $value->court;
@@ -381,7 +381,7 @@ class lawsuits extends Controller
 
                 $l = $saida[0];
 
-                $lawsuit = \App\Lawsuit::find($l->id); //tenho que colocar os campos no 
+                $lawsuit = \App\Lawsuit::find($l->id); //tenho que colocar os campos no
 
                 if(!is_null($lawsuit['more_courts'])){
 

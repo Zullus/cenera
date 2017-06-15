@@ -131,7 +131,7 @@ class ClientController extends Controller
 
     	$lawsuit = [];
 
-        $types = \App\Type::all();
+        $types = \App\Type::orderBy('type')->get();
 
         foreach ($types as $value) {
             $alltypes[$value->id] = $value->type;

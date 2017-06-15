@@ -40,7 +40,7 @@
 <script>
 	function deleteConfirm(){
 
-		var r = confirm("¿Estas seguro de que lo quieres borrar?");
+		var r = confirm("¿Quieres realmente apagarlo??");
 
 		if (r == true) {
 		    window.location = "{!! route('courts.destroy', ['id' => $court->id]) !!}";

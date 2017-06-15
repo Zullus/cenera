@@ -33,7 +33,7 @@
 			      		{{$lawsuit->clients['name']}}
 			      	@else
 			      		@if($lawsuit->lastname != '')
-			      			{{$lawsuit->lastname}}, 
+			      			{{$lawsuit->lastname}},
 			      		@endif
 
 						{{$lawsuit->name}}
@@ -113,7 +113,7 @@
 			      		{{$lawsuit->attorneys['name']}}
 			      	@else
 			      		@if($lawsuit->attorneylastname != '')
-			      			{{$lawsuit->attorneylastname}}, 
+			      			{{$lawsuit->attorneylastname}},
 			      		@endif
 
 						{{$lawsuit->attorneyname}}
@@ -131,7 +131,7 @@
 			      		{{$lawsuit->opponents['name']}}
 			      	@else
 			      		@if($lawsuit->opponentlastname != '')
-			      			{{$lawsuit->opponentlastname}}, 
+			      			{{$lawsuit->opponentlastname}},
 			      		@endif
 
 						{{$lawsuit->opponentname}}
@@ -161,7 +161,7 @@
 			      		{{$lawsuit->responsables['name']}}
 			      	@else
 			      		@if($lawsuit->responsablelastname != '')
-			      			{{$lawsuit->responsablelastname}}, 
+			      			{{$lawsuit->responsablelastname}},
 			      		@endif
 
 						{{$lawsuit->responsablename}}
@@ -189,7 +189,7 @@
 <script>
 	function deleteConfirm(){
 
-		var r = confirm("¿Estas seguro de que lo quieres borrar?");
+		var r = confirm("¿Quieres realmente apagarlo?");
 
 		if (r == true) {
 		    window.location = "{!! route('lawsuits.destroy', ['id' => $lawsuit->id]) !!}";
